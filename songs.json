@@ -76,14 +76,14 @@
   {
     "title": "Crazy Little Thing Called Love",
     "artist": "Queen",
-    "notes": "Beg. med gitar. Elvis swing beat på hi-hat > stopp på hvert vers. Husk brekk på slutt av ref, klikking etter første bass. Etter solo, slutt med dempet crash > brekk > til klappeparti > ‘love’, kom inn igjen med skarp > vers > Når ikke synger mer, stopp med 1-2-3-4-5-6 på ride",
-    "bpm": 77,
+    "bpm": 152,
     "start": "GITAR",
+    "energy": "høy",
     "tags": [
       "rock",
       "dans"
     ],
-    "energy": "høy"
+    "notes": "Beg. med gitar. Shuffle beat på hi-hat > stopp på hvert vers. Husk brekk på slutt av ref, klikking etter første bass. Etter solo, slutt med dempet crash > brekk > til klappeparti > ‘love’, kom inn igjen med skarp > vers > Når ikke synger mer, stopp med 1-2-3-4-5-6 på ride"
   },
   {
     "title": "Dead Flowers",
@@ -100,14 +100,13 @@
   {
     "title": "Deidres Samba",
     "artist": "Cornelis Vreeswijk",
-    "notes": "Tell opp: Sambarytme m/fast b.tr + hh sammen med Ekka. Harmoniser. BB H BB H",
-    "bpm": null,
+    "bpm": 120,
     "start": "TELL",
+    "energy": "middels",
     "tags": [
-      "samba",
-      "rolig"
+      "samba"
     ],
-    "energy": "rolig"
+    "notes": "Tell opp: Sambarytme m/fast b.tr + hh sammen med Ekka. Harmoniser. BB H BB H"
   },
   {
     "title": "Dimples",
@@ -531,5 +530,27 @@
       "norsk"
     ],
     "energy": "middels"
+  },
+  {
+    "title": "Pål sine høner",
+    "artist": "KES",
+    "bpm": 152,
+    "start": "GITAR",
+    "energy": "middels",
+    "tags": [
+      "rock"
+    ],
+    "notes": "Starter med gitar, så bass alene to takter, kommer inn med 1-2-3-crash > hi-hat driv. 'Heimåt til mor', break på slag 1-2-3-crash CRASH. Veksle med ride + fills på bridge, over til crash--crash > nytt vers. Slutter etter 'heimåt til mor' x 3."
+  },
+  {
+    "title": "Sunshine Of Your Love",
+    "artist": "Cream",
+    "bpm": 117,
+    "start": "GITAR",
+    "energy": "middels",
+    "tags": [
+      "rock"
+    ],
+    "notes": "Backwards groove på 1 og 3 (gulvtam), ikke skarp gjennomgående på backbeat."
   }
 ]
