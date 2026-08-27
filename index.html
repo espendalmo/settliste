@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#111214">
+
+
+<title>Gig-settliste</title>
+<style>
+:root{color-scheme:dark;--bg:#111214;--panel:#1b1d20;--panel2:#24272b;--text:#f4f5f7;--muted:#a6abb3;--accent:#68b8ff;--border:#30343a;--played:#33363a;--danger:#ff7777;--active:#172633}
+*{box-sizing:border-box}html{background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Arial,sans-serif}body{margin:0;min-height:100dvh;background:var(--bg);color:var(--text)}button,input{font:inherit}button{-webkit-tap-highlight-color:transparent}.app{width:min(780px,100%);margin:auto;padding:env(safe-area-inset-top) 12px calc(26px + env(safe-area-inset-bottom))}
+.topbar{position:sticky;top:0;z-index:20;padding:9px 0 12px;background:linear-gradient(var(--bg) 88%,transparent)}.searchrow{display:flex;gap:7px}#search{width:100%;min-height:48px;padding:0 14px;border:1px solid var(--border);border-radius:12px;background:var(--panel);color:var(--text);font-size:17px;outline:none}#search:focus{border-color:var(--accent)}
+.iconbtn{min-width:48px;border:1px solid var(--border);border-radius:12px;background:var(--panel2);color:var(--muted)}.primaryrow{display:flex;gap:7px;margin-top:7px;align-items:center}.suggest{flex:1;min-height:43px;border:0;border-radius:10px;background:var(--accent);color:#07131e;font-weight:800}.counter{font-size:12px;color:var(--muted);white-space:nowrap}
+.filters{display:flex;gap:6px;overflow-x:auto;padding:7px 0 1px;scrollbar-width:none}.filters::-webkit-scrollbar{display:none}.chip{flex:0 0 auto;min-height:31px;padding:0 10px;border:1px solid var(--border);border-radius:999px;background:transparent;color:var(--muted);font-size:12px;font-weight:700}.chip.active{background:var(--panel2);color:var(--text);border-color:#59616c}
+.dashboard{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin:6px 0 12px}.stat{padding:9px 10px;border:1px solid var(--border);border-radius:10px;background:var(--panel);text-align:center}.stat strong{display:block;font-size:17px}.stat span{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.recent{margin:0 0 12px}.recent h2,.sectionhead h2{margin:0;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}.recentlist{display:flex;gap:6px;overflow-x:auto;padding-top:6px;scrollbar-width:none}.recentitem{flex:0 0 auto;padding:7px 9px;border:1px solid var(--border);border-radius:8px;background:var(--panel);font-size:11px;color:var(--muted)}
+.sectionhead{display:flex;justify-content:space-between;align-items:baseline;margin:10px 3px 7px}.sectionhead span{font-size:11px;color:var(--muted)}.songlist{display:flex;flex-direction:column;gap:7px}.song{border:1px solid var(--border);border-radius:13px;padding:11px 12px;background:var(--panel);cursor:pointer}.song.active{border-color:var(--accent);background:var(--active)}
+.song.active{position:relative}
+.pulsewrap{display:none;align-items:center;gap:8px;margin-top:9px;padding:8px 10px;border:1px solid var(--border);border-radius:9px;background:#12171c}
+.song.active .pulsewrap{display:flex}
+.pulsedot{width:16px;height:16px;border-radius:50%;background:var(--accent);opacity:.28;transform:scale(.78)}
+.pulsedot.beat{opacity:1;transform:scale(1.28)}
+.pulsetext{font-size:11px;color:var(--muted);font-weight:750}
+.pulsetoggle{margin-left:auto;min-height:30px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text);font-size:11px;font-weight:750}
+.modebar{display:flex;gap:7px;margin:7px 0 0}
+.modebtn{flex:1;min-height:34px;border:1px solid var(--border);border-radius:9px;background:transparent;color:var(--muted);font-size:11px;font-weight:800}
+.modebtn.active{background:var(--panel2);color:var(--text);border-color:#5b6671}
+.forcedpanel{display:none;margin:10px 0 12px;padding:10px;border:1px solid var(--border);border-radius:11px;background:var(--panel)}
+.forcedpanel.show{display:block}
+.forcedhead{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:8px}
+.forcedhead strong{font-size:13px}
+.forcedactions{display:flex;gap:6px;flex-wrap:wrap}
+.forcedactions button{min-height:32px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--text);font-size:11px}
+.forcedlist{display:grid;gap:6px}
+.forceditem{display:grid;grid-template-columns:28px 1fr auto auto;gap:7px;align-items:center;padding:8px;border:1px solid var(--border);border-radius:8px;background:#15181b;cursor:pointer}.forceditem.activeforced{border-color:var(--accent);background:#172633}
+.forceditem .num{color:var(--muted);font-size:11px;text-align:center}
+.forceditem .fmeta strong{display:block;font-size:13px}
+.forceditem .fmeta small{color:var(--muted);font-size:11px}
+.forceditem button{min-width:32px;min-height:30px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--text)}
+.forceditem.playedset{opacity:.45}
+.forcednext{margin:8px 0 0;padding:8px 10px;border-radius:8px;background:#142434;color:#cfeaff;font-size:12px;font-weight:750}
+.projectrow{display:grid;grid-template-columns:1fr auto auto;gap:7px;margin-bottom:8px}
+.projectrow select,.projectrow button{min-height:38px;border:1px solid var(--border);border-radius:8px;background:#15181b;color:var(--text);padding:0 9px}
+.projectrow button{font-size:11px;font-weight:750}
+.forcedbuilder{display:grid;grid-template-columns:1fr auto;gap:7px;margin-bottom:8px}
+.forcedbuilder input{min-height:38px;border:1px solid var(--border);border-radius:8px;background:#15181b;color:var(--text);padding:0 10px}
+.forcedbuilder button{min-height:38px;border:1px solid var(--border);border-radius:8px;background:var(--panel2);color:var(--text);font-size:11px}
+.forceditem{grid-template-columns:28px 1fr auto auto auto}
+.forceditem.pauseitem{grid-template-columns:28px 1fr auto auto;background:#181818;border-style:dashed}
+.forceditem.pauseitem .fmeta strong{color:#d7d7d7}
+.sceneToggle{margin-top:8px;width:100%;min-height:36px;border:1px solid var(--border);border-radius:8px;background:transparent;color:var(--text);font-size:11px;font-weight:800}
+.scene{display:none}
+body.scene-mode .app{width:min(620px,100%);padding-top:env(safe-area-inset-top)}
+body.scene-mode .topbar,body.scene-mode .dashboard,body.scene-mode .recent,body.scene-mode section:not(.scene):not(.forcedpanel),body.scene-mode .tools{display:none!important}
+body.scene-mode .forcedpanel{display:none!important}
+body.scene-mode .scene{display:block;padding:18px 4px 28px}
+.sceneCurrent{text-align:center;padding:18px 10px 16px}
+.sceneCurrent .sceneTitle{font-size:30px;font-weight:900;line-height:1.05}
+.sceneCurrent .sceneArtist{margin-top:7px;color:var(--muted);font-size:17px}
+.scenePulseWrap{display:flex;justify-content:center;align-items:center;gap:14px;margin:22px 0 10px}
+.scenePulse{width:34px;height:34px;border-radius:50%;background:var(--accent);opacity:.25;transform:scale(.8)}
+.scenePulse.beat{opacity:1;transform:scale(1.35)}
+.scenePulse.downbeat{box-shadow:0 0 0 6px rgba(104,184,255,.18)}
+.sceneBpm{font-size:24px;font-weight:900}
+.sceneStart{display:inline-flex;margin-top:10px;padding:6px 10px;border-radius:999px;background:var(--panel2);font-size:12px;font-weight:850}
+.sceneControls{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}
+.sceneControls button{min-height:44px;border-radius:9px;border:1px solid var(--border);background:var(--panel);color:var(--text);font-weight:800}
+.sceneControls .scenePlayed{background:var(--accent);color:#07131e;border:0}
+.sceneNext{margin-top:18px;border-top:1px solid var(--border);padding-top:14px}
+.sceneNext h3{margin:0 0 8px;color:var(--muted);font-size:11px;text-transform:uppercase;letter-spacing:.08em}
+.sceneQueue{display:grid;gap:7px}
+.sceneQueue .qitem{padding:9px 10px;border:1px solid var(--border);border-radius:8px;background:var(--panel);cursor:pointer}.sceneQueue .qitem:active{transform:scale(.99)}
+.sceneQueue .qitem strong{display:block}
+.sceneQueue .qitem small{color:var(--muted)}
+.sceneExit{width:100%;margin-top:18px;min-height:42px;border:1px solid var(--border);border-radius:9px;background:transparent;color:var(--muted)}
+.pulseOptions{display:flex;gap:6px;margin-top:6px}
+.pulseOptions button{min-height:28px;border:1px solid var(--border);border-radius:7px;background:transparent;color:var(--muted);font-size:10px}
+.pulseOptions button.active{background:var(--panel2);color:var(--text)}
+
+
+.songhead{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.songname{min-width:0}.title{font-size:17px;line-height:1.15;font-weight:800}.artist{margin-top:2px;color:var(--muted);font-size:13px}.star{border:0;background:transparent;color:#7e838b;font-size:22px;padding:0 2px;line-height:1}.star.on{color:#ffd66b}
+.meta{display:flex;flex-wrap:wrap;gap:5px;margin-top:7px}.badge{display:inline-flex;min-height:22px;align-items:center;padding:2px 7px;border-radius:6px;background:var(--panel2);font-size:11px;font-weight:750;color:#dce0e5}.badge.start{color:#bde1ff}.notes{display:none;margin-top:9px;color:#c8ccd2;font-size:13px;line-height:1.42}.song.active .notes{display:block}
+.actions{display:none;grid-template-columns:1fr auto;gap:7px;margin-top:11px}.song.active .actions{display:grid}.markplayed{min-height:43px;border:0;border-radius:9px;background:var(--accent);color:#07131e;font-weight:850}.smallaction{min-width:46px;border:1px solid var(--border);border-radius:9px;background:transparent;color:var(--text)}
+.played .song{background:var(--played);opacity:.58}.played .title{text-decoration:line-through;text-decoration-thickness:1px}.played .meta,.played .notes,.played .star{display:none}.empty{padding:16px;border:1px dashed var(--border);border-radius:11px;color:var(--muted);text-align:center;font-size:13px}
+.tools{margin-top:23px;padding-top:14px;border-top:1px solid var(--border)}.tools summary{cursor:pointer;color:var(--muted);font-size:13px;font-weight:700}.toolgrid{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:10px}.toolgrid button,.filelabel{min-height:41px;border:1px solid var(--border);border-radius:9px;background:transparent;color:var(--muted);display:flex;align-items:center;justify-content:center;text-align:center;font-size:12px;text-decoration:none}.reset{color:var(--danger)!important;border-color:#573636!important}.filelabel input{display:none}
+dialog{width:min(92vw,500px);border:1px solid var(--border);border-radius:16px;padding:0;background:var(--panel);color:var(--text)}dialog::backdrop{background:rgba(0,0,0,.75)}.dialoginner{padding:18px}.dialoginner h3{margin:0 0 5px;font-size:20px}.dialoginner p{margin:0 0 13px;color:var(--muted);font-size:13px}.suggestions{display:grid;gap:7px}.suggestion{border:1px solid var(--border);border-radius:10px;background:var(--panel2);color:var(--text);text-align:left;padding:11px}.suggestion strong{display:block;font-size:16px}.suggestion small{color:var(--muted)}.reason{display:block;margin-top:4px;font-size:10px;color:#89c9ff}.dialogbuttons{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:11px}
+.secondarydialog{min-height:41px;border:1px solid var(--border);border-radius:9px;background:transparent;color:var(--text);font-weight:750}
+.close{width:100%;min-height:41px;margin-top:0;border:0;border-radius:9px;background:var(--accent);color:#07131e;font-weight:800}
+.toast{position:fixed;left:50%;bottom:calc(18px + env(safe-area-inset-bottom));transform:translateX(-50%) translateY(80px);z-index:50;padding:9px 13px;border-radius:9px;background:#eef1f4;color:#111;font-size:12px;font-weight:700;opacity:0;transition:.2s}.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(min-width:650px){.songlist{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body>
+<main class="app">
+<header class="topbar">
+<div class="searchrow"><input id="search" type="search" placeholder="Søk låt, artist, BPM, tag …" autocomplete="off"><button class="iconbtn" id="clearSearch" aria-label="Tøm søk">×</button></div>
+<div class="primaryrow"><button class="suggest" id="suggestBtn">🎲 Foreslå neste</button><div class="counter" id="totalCount"></div></div>
+<div class="modebar">
+<button class="modebtn active" id="freeModeBtn">Fri modus</button>
+<button class="modebtn" id="forcedModeBtn">Tvungen settliste</button>
+<button class="modebtn" id="freeSceneBtn">Scenemodus</button>
+</div>
+<div class="filters" id="filters">
+<button class="chip active" data-filter="alle">Alle</button><button class="chip" data-filter="favoritt">★ Favoritter</button><button class="chip" data-filter="rock">Rock</button><button class="chip" data-filter="blues">Blues</button><button class="chip" data-filter="dans">Dans</button><button class="chip" data-filter="singalong">Singalong</button><button class="chip" data-filter="rolig">Rolig</button><button class="chip" data-filter="tell">Tell opp</button><button class="chip" data-filter="slowbpm">&lt; 90</button><button class="chip" data-filter="midbpm">90–119</button><button class="chip" data-filter="fastbpm">120+</button>
+</div></header>
+<section class="forcedpanel" id="forcedPanel">
+  <div class="projectrow">
+    <select id="projectSelect" aria-label="Velg settlisteprosjekt"></select>
+    <button id="newProjectBtn">+ Ny</button>
+    <button id="renameProjectBtn">Gi nytt navn</button>
+  </div>
+  <div class="forcedhead">
+    <strong>Tvungen settliste</strong>
+    <div class="forcedactions">
+      <button id="addPauseBtn">+ Pause</button>
+      <button id="clearSetBtn">Tøm</button>
+    </div>
+  </div>
+  <div class="forcedbuilder">
+    <input id="setSongSearch" list="songOptions" placeholder="Søk låt og legg til …">
+    <button id="addToSetBtn">Legg til</button>
+  </div>
+  <datalist id="songOptions"></datalist>
+  <div class="forcedlist" id="forcedList"></div>
+  <div class="forcednext" id="forcedNext" style="display:none"></div>
+  <button class="sceneToggle" id="sceneModeBtn">Åpne scenemodus</button>
+</section>
+<section class="dashboard"><div class="stat"><strong id="setNo">1</strong><span>Sett</span></div><div class="stat"><strong id="setCount">0</strong><span>I dette settet</span></div><div class="stat"><strong id="playedTotal">0</strong><span>Spilt totalt</span></div></section>
+<section class="recent" id="recentSection"><h2>Sist spilt</h2><div class="recentlist" id="recentList"></div></section>
+<section><div class="sectionhead"><h2>Ikke spilt</h2><span id="remainingCount"></span></div><div id="remaining" class="songlist"></div></section>
+<section><div class="sectionhead"><h2>Spilt · trykk for å angre</h2><span id="playedCount"></span></div><div id="played" class="songlist played"></div></section>
+<section class="scene" id="sceneView">
+  <div class="sceneCurrent">
+    <div class="sceneTitle" id="sceneTitle">Ingen aktiv låt</div>
+    <div class="sceneArtist" id="sceneArtist"></div>
+    <div class="scenePulseWrap">
+      <div class="scenePulse" id="scenePulse"></div>
+      <div class="sceneBpm" id="sceneBpm">— BPM</div>
+    </div>
+    <div class="sceneStart" id="sceneStart" style="display:none"></div>
+    <div class="pulseOptions">
+      <button id="scenePulseToggle">Puls: av</button>
+      <button id="sceneHalfToggle">Halvtempo: av</button>
+      <button id="sceneAccentToggle">4/4-accent: på</button>
+    </div>
+  </div>
+  <div class="sceneControls">
+    <button class="scenePlayed" id="scenePlayedBtn">✓ Spilt</button>
+    <button id="scenePrevBtn">← Forrige</button>
+  </div>
+  <button class="sceneExit" id="sceneRefreshBtn" style="display:none;margin-top:0">↻ Tre nye forslag</button>
+  <div class="sceneNext">
+    <h3>Neste</h3>
+    <div class="sceneQueue" id="sceneQueue"></div>
+  </div>
+  <button class="sceneExit" id="sceneExitBtn">Tilbake til settliste</button>
+</section>
+<details class="tools"><summary>Verktøy og data</summary><div class="toolgrid"><button id="newSetBtn">Nytt sett</button><button id="undoBtn">Angre siste</button><button id="wakeBtn">Skjerm alltid på: av</button><button id="autoNextBtn">Auto-neste: på</button><button id="exportBtn">Eksporter backup</button><a class="filelabel" href="editor.html">Rediger repertoar</a><label class="filelabel">Importer JSON<input id="importInput" type="file" accept=".json,application/json"></label><button class="reset" id="resetBtn">Nullstill kveld</button></div></details>
+</main>
+<dialog id="suggestDialog"><div class="dialoginner"><h3>Forslag til neste</h3><p>Ser på de fem siste låtene og vurderer artist, tempo, energi, tags og favoritter for å skape bedre flyt.</p><div class="suggestions" id="suggestions"></div>
+<div class="dialogbuttons">
+  <button class="secondarydialog" id="refreshSuggestions">↻ Tre nye forslag</button>
+  <button class="close" id="closeDialog">Lukk</button>
+</div></div></dialog>
+<div class="toast" id="toast"></div>
+<script>
+const FALLBACK_SONGS = [{"title":"Abracadabra","artist":"Steve Miller Band","notes":"Tell 1-2-3-4-1-2-3-BAM > Rett på med skarpslag - crash (S BB). Disco beat, gå over til ride helt mot slutten. Dovregubben på slutten, gitar alene, rock outro.","bpm":129,"start":"TELL","tags":["rock","dans"],"energy":"høy"},{"title":"Black Magic Woman","artist":"Santana","notes":"To x klakk på bjelle før hi-hat. 2 veiver, før overgang til vers. Kubjelle + hi-hat + kantslag på vers. Ride + solo > vers m/kubjelle. Siste runde med hh. 7 ridecrash på slutten.","bpm":124,"start":"BJELLE","tags":["latin","rock","blues"],"energy":"middels"},{"title":"Breakfast In America","artist":"Supertramp","notes":"Intro på gitar > inn etter to takter, med minivirvel. Stopp etter slutt på ref. Leken ride på bridge, kort. Stopp. Naa-naa. Slutter med ride + crash. Rit på slutten.","bpm":75,"start":"GITAR","tags":["pop","rolig"],"energy":"rolig"},{"title":"Brown Eyed Girl","artist":"Van Morrison","notes":"Tell opp, Halvslag hi-hat fra start, husk kant slag i intro 4. slag bass\nFader ut?","bpm":150,"start":"TELL","tags":["pop","dans","singalong"],"energy":"høy"},{"title":"Can’t Help Falling In Love","artist":"Elvis Presley","notes":"Rett på med visper eller rods 16-dels hi hat + basstromme. Rit på slutten","bpm":100,"start":"RETT PÅ","tags":["rolig","ballade"],"energy":"rolig"},{"title":"Come Together","artist":"The Beatles","notes":"Husk klut over gulvtam. Tell opp: 4x hh > vers > 4x hh > vers > 4x hh > vers > 2x hh > overg. crash/ride rytme (solo) > stopp. Vers g.tom > 4x hh > overg. crash/ride rytme (outro).","bpm":83,"start":"TELL","tags":["rock","groove"],"energy":"middels"},{"title":"Crazy Little Thing Called Love","artist":"Queen","notes":"Beg. med gitar. Elvis swing beat på hi-hat > stopp på hvert vers. Husk brekk på slutt av ref, klikking etter første bass. Etter solo, slutt med dempet crash > brekk > til klappeparti > ‘love’, kom inn igjen med skarp > vers > Når ikke synger mer, stopp med 1-2-3-4-5-6 på ride","bpm":77,"start":"GITAR","tags":["rock","dans"],"energy":"høy"},{"title":"Dead Flowers","artist":"The Rolling Stones","notes":"Litt fart her. Tell opp, starter med roll, kommer > 4/4. Avslutter etter siste “Won’t forget to put roses on your grave” 1-2-krasj","bpm":130,"start":"TELL","tags":["rock","country"],"energy":"høy"},{"title":"Deidres Samba","artist":"Cornelis Vreeswijk","notes":"Tell opp: Sambarytme m/fast b.tr + hh sammen med Ekka. Harmoniser. BB H BB H","bpm":null,"start":"TELL","tags":["samba","rolig"],"energy":"rolig"},{"title":"Dimples","artist":"John Lee Hooker","notes":"Blues: Beg. m/gitar, gå over til (B S B S BB) + swingride på hi-hsy. Varier med ride og crash. Husk slutt, hold slagene på skarp i basslinje, slutt.","bpm":137,"start":"GITAR","tags":["blues","dans"],"energy":"høy"},{"title":"Englishman In New York","artist":"Sting","notes":"Tell opp, begynner m/tom TT T splash > hi-hat virvel/splash + b.tromme + kantslag (gjennomgående) > ref. ride > vers > ref. ride > overgang til bridge > stadion-basstromme-veiv x 2 > roll overg. til vers + 6 x ‘be your self’ singalon > ref > roll overg. til stadion beat 2 x > slutt.","bpm":102,"start":"TELL","tags":["pop","reggae"],"energy":"middels"},{"title":"Folsom Prison Blues","artist":"Johnny Cash","notes":"Intro på gitar + b.tromme -> Train beat. Ride på solo To ganger på slutten, før avslutn.","bpm":102,"start":"GITAR","tags":["country","dans"],"energy":"høy"},{"title":"From Hank to Hendrix","artist":"Neil Young","notes":"For det meste stomping på hi-hat, veksle med soft beat","bpm":109,"start":"RETT PÅ","tags":["rolig","country"],"energy":"rolig"},{"title":"Get It On","artist":"T. Rex","notes":"Beg. m/gitar. Kommer inn m S B, S B. 4/4 hi-hat > Alle slag på ‘Get in on’. Stopp etter tredje ref. «Get in on», en takt etter.","bpm":127,"start":"GITAR","tags":["rock","dans"],"energy":"høy"},{"title":"Help Me","artist":"Sonny Boy Williamson II","notes":"Rett på. Slow blues, slepende visper eller mutet driv (BSBSBSSBS) Ride på slutten. Stopp, to slag på ride helt slutt.","bpm":114,"start":"RETT PÅ","tags":["blues","rolig"],"energy":"rolig"},{"title":"Human","artist":"The Killers","notes":"Rett på med hi-hat 16-del. Gå på med pumpebass > kutt hi-hat på første ref (kun b.tromme) > over til beat med gulvtam ut låta > evt veiv med kun basstr. for singalong > over til kun b.tromme (stopp rett før ‘are we dancer’).","bpm":135,"start":"RETT PÅ","tags":["pop","dans","singalong"],"energy":"høy"},{"title":"I Heard It Through The Grapewine","artist":"Creedence Clearwater Revival","notes":"Tell opp: Rett på med hi-hat på 2. slag (4 takter), før kommer inn på 4/4. Etter ref > tam-er i 8 takter (3 ganger) > solo > avslutn.","bpm":119,"start":"TELL","tags":["rock","groove"],"energy":"middels"},{"title":"I Shot The Sheriff","artist":"Eric Clapton","notes":"Git start > Start med hh+b.tromme > kommer inn T SS T. Etter 3. vers, to runder før avslutning.","bpm":94,"start":"GITAR","tags":["reggae","blues"],"energy":"middels"},{"title":"I’m Gonna Be (500 Miles)","artist":"The Proclaimers","notes":"Tell opp > Starter med hi-hat, går over til b.trommeslag + skarp. To vers -> ref, nananana. Stopp. Intro med basslag + skarp to takter, kommer mer inn. Husk stopp, synkope ‘coming hooome’. Bygger opp før siste vers/ref.","bpm":132,"start":"TELL","tags":["pop","dans","singalong"],"energy":"høy"},{"title":"I’ll Be Your Baby Tonight","artist":"Bob Dylan","notes":"Tell opp: Rett på med enkel 4/4 (HSHS), perk på 3. vers > ‘stopp’ med perk etter big fat moon’s gonna shine like a spoon. Husk egen outtro, kjør som vanlig.","bpm":128,"start":"TELL","tags":["country","rolig"],"energy":"rolig"},{"title":"Is This Love","artist":"Bob Marley","notes":"Tell opp sakte, husk tempo, rett på med kantslag. Alle b-slag. Krydre med perk.","bpm":122,"start":"TELL","tags":["reggae","dans"],"energy":"høy"},{"title":"La Bamba","artist":"Los Lobos","notes":"Gitarintro, beat over annenhver tom. Husk hardt stopp etter første vers, hardt stopp etter solo. En runde med bamba, så Beatles-slutt.","bpm":161,"start":"GITAR","tags":["latin","dans","singalong"],"energy":"høy"},{"title":"Light My Fire","artist":"The Doors","notes":"Tell opp 1-2-3-4-1-2-3-smekk! Husk egen vri etter solo. Etter solo, 1-2-3-4, 1-2-3-4, deretter vers + ref. 2x. Etter stopp, tell 1-2-3-smekk! til avslutning. Husk rit!","bpm":129,"start":"TELL","tags":["rock"],"energy":"høy"},{"title":"Make Me Smile (Come Up and See Me)","artist":"Steve Harley & Cockney Rebel","notes":"Beg m/skala git/bass, 1111-11 på gulvtom, trommer inn på «You got it all». Husk harde stopp. Kan hende prat i mellom. Slutten; ref i ett to ganger, 4 slag på slutten.","bpm":144,"start":"GITAR/BASS","tags":["rock","pop","singalong"],"energy":"høy"},{"title":"Man of the World","artist":"Peter Green","notes":"Gitarintro, to veiv + mellomspill. Første vers uten trommer. Hi hat + B BB S (kantslag). Hardt stopp etter første veiv med trommer. Vent på gitar, hh + kant > Gå over til hard ride + skarp-rytme, en veiv. Outro kun gitar. Kommer inn helt på slutt med ride x 2.","bpm":92,"start":"GITAR","tags":["blues","rolig"],"energy":"rolig"},{"title":"No Place To Go","artist":"Fleetwood Mac","notes":"Blues, starter med gitar, kommer inn på off-rytme, ride swing + skarp (annenhvert basslag). Gjennomgående likt.","bpm":144,"start":"GITAR","tags":["blues"],"energy":"høy"},{"title":"Oh Baby","artist":"Status Quo","notes":"Git. start, bygger opp rytme til «I wanna be your dog-rytme». Lettere på vers. 4/4 hi-hat. Ride på solodel (blues). Husk brekk på bridge. Slutter med brekkene fra bridge.","bpm":null,"start":"GITAR","tags":["rock","blues"],"energy":"middels"},{"title":"People Are Strange","artist":"The Doors","notes":"Beg m/ gitar. Inn inn på ref. Med harde stopp, siste slag etter ‘rain’. Ride + ghost. Stopp etter solo. Stopper på «When your.. strange».","bpm":119,"start":"GITAR","tags":["rock","pop"],"energy":"middels"},{"title":"Perfectly Lonely","artist":"John Mayer","notes":"To støt på gitar, så ridedrevet 4/4. Over til hh på vers. Veksle over til ride på gitarveiv. Intro til bridge med 8x singelslag, over til ride.","bpm":92,"start":"GITAR","tags":["pop","groove"],"energy":"middels"},{"title":"Rosie","artist":"John Mayer","notes":"Tell opp sakte > Rett på med hi hat + skarp (B S BB B). Ride på vers. Virvel før solo. 8 takter på slutten.","bpm":139,"start":"TELL","tags":["pop","groove"],"energy":"høy"},{"title":"Ruby","artist":"Gary Holton & Casino Steel","notes":"2 takter sakte 16-del, pause hi-hat > Stopp på slutten av ref. etter «Oh Ruuby.. +». Husk gulvtom + hi hat. Begynn beat igjen etter siste vokal før bam/stopp.","bpm":97,"start":"HH","tags":["country","pop"],"energy":"middels"},{"title":"Sad Eyes","artist":"Bruce Springsteen","notes":"Beg. gitar, kommer inn etter 1 takt, kantslag + hi-hat, soft/lounge\nStopp etter “Come on dressed, one more step”, hold på hi-hat. Ref inn igjen etter kort pause.","bpm":115,"start":"GITAR","tags":["rolig","pop"],"energy":"rolig"},{"title":"Start Me Up","artist":"The Rolling Stones","notes":"Begynner med gitar, trommer kommer inn med hi-hat splash + basstromme. Enkeltslag skarp. Deretter hente inn hihat-rytme. Ride på ref.","bpm":122,"start":"GITAR","tags":["rock","dans"],"energy":"høy"},{"title":"Sunny Afternoon","artist":"The Kinks","notes":"Husk tempo! 122. Beg med bass, kommer inn med 1-2-3-4-5-6 skarp. Soft beat hi-hat 4/4.","bpm":123,"start":"BASS","tags":["pop","rolig","singalong"],"energy":"rolig"},{"title":"Take Me Home, Country Roads","artist":"John Denver","notes":"Git. start, hold tap på skarp. Jazz stomp, visper beg. på refreng.","bpm":83,"start":"GITAR","tags":["country","singalong"],"energy":"middels"},{"title":"The Thrill Is Gone","artist":"Gary Moore feat. BB King","notes":"Husk tempo! Blues, kommer inn litt etter bass. Hi-hat + kantslag.\nEtter første vers, kom inn med fast rytme skarp. Solo. Varier med kantslag pianoissimo på solo underveis.","bpm":91,"start":"BASS","tags":["blues","rolig"],"energy":"rolig"},{"title":"The Weight","artist":"The Band","notes":"Beg. m/gitar 2 takter, sakte roll overg. Kort solo > siste vers + ref > to runder etter ‘slutt’.","bpm":72,"start":"GITAR","tags":["rock","singalong"],"energy":"middels"},{"title":"Time Is On My Side","artist":"The Rolling Stones","notes":"Husk tempo: Beg. m/gitar. Trommer inn på ref. Sakte blues-ride > time time time x 3 > 1-2-3-4-5—6 på ride.","bpm":109,"start":"GITAR","tags":["blues","rolig"],"energy":"rolig"},{"title":"Use Somebody","artist":"Kings Of Leon","notes":"Tell opp: Rett på med crashriderytme. Stopp på 1. vers. Bygger opp på 2. vers. > ref crashride > vanlig rytme på 3. vers + bygger opp til crashride ref. Bridge på tammer > ovreg. crashride til solo >  x someone like you/use somebody > Fullt stopp. La henge på gitar + stopp med gulvtomroll.","bpm":70,"start":"TELL","tags":["rock","singalong"],"energy":"middels"},{"title":"When I Was A Boy","artist":"Jeff Lynne’s ELO","notes":"Beg. gitar > kommer inn med liten roll > 4/4, varier med ride. Liten overgang til vers. Slutter på «When I was a boy» 1-2--3 ride.","bpm":75,"start":"GITAR","tags":["rolig","pop"],"energy":"rolig"},{"title":"While My Guitar Gently Weeps","artist":"The Jeff Healey Band","notes":"Beg. gitar, kommer inn på lang tom-inngang. Tung. 16-dels hh. 4/4. Solo > slutt.","bpm":135,"start":"GITAR","tags":["rock","blues"],"energy":"høy"},{"title":"Who Says","artist":"John Mayer","notes":"Tell opp. Visper. Etter solo, vent, kom inn igjen","bpm":90,"start":"TELL","tags":["rolig","pop"],"energy":"rolig"},{"title":"World of Today","artist":"Supermax","notes":"Beg. gitar, kommer inn med 8-dels hi-hat, deretter mekanisk beat B S B S. Husk bygg opp til stopp på hvert ref. Etter solo, ref/vers/ref > slutt på ref.","bpm":147,"start":"GITAR","tags":["funk","dans"],"energy":"høy"},{"title":"Æ Breinn Et Lys i Begge Einann","artist":"K.M. Myrland","notes":"Begynner på tam-er (B BB S). «..skulle be», to takter > slutt. Bare slå løs, lage litt overganger.","bpm":null,"start":"TROMMER","tags":["rock","norsk"],"energy":"middels"}];
+const KEY="gig-settliste-v6.1", REP_KEY="gig-settliste-repertoire-v5", WAKE_KEY="gig-settliste-wake-v5";
+let songs=[];
+let state=JSON.parse(localStorage.getItem(KEY)||"null")||{played:[],history:[],favorites:[],setNo:1,setStarts:[0]};
+state.played||=[];state.history||=[];state.favorites||=[];state.setNo||=1;state.setStarts||=[0];
+let activeSong=null,activeFilter="alle",wakeEnabled=localStorage.getItem(WAKE_KEY)==="1",wakeLock=null;
+let pulseEnabled=false,pulseTimer=null,pulseBeat=0;
+let pulseHalf=localStorage.getItem("gig-settliste-pulse-half-v1")==="1";
+let pulseAccent=localStorage.getItem("gig-settliste-pulse-accent-v1")!=="0";
+let appMode=localStorage.getItem("gig-settliste-mode-v1")||"free";
+let forcedProjects=JSON.parse(localStorage.getItem("gig-settliste-projects-v1")||"null")||[{id:"default",name:"Standard",items:[]}];
+let activeProjectId=localStorage.getItem("gig-settliste-active-project-v1")||forcedProjects[0].id;
+let autoNext=localStorage.getItem("gig-settliste-autonext-v1")!=="0";
+let sceneSuggestions=[];
+function currentProject(){return forcedProjects.find(p=>p.id===activeProjectId)||forcedProjects[0]}
+function currentSet(){return currentProject().items}
+
+const $=id=>document.getElementById(id);
+
+async function loadSongs(){
+  try{
+    const response=await fetch("./songs.json",{cache:"no-store"});
+    if(!response.ok) throw new Error("Kunne ikke hente songs.json");
+    const fresh=await response.json();
+    if(!Array.isArray(fresh)) throw new Error("songs.json har ugyldig format");
+    songs=fresh;
+    localStorage.setItem(REP_KEY,JSON.stringify(songs));
+  }catch(err){
+    const cached=JSON.parse(localStorage.getItem(REP_KEY)||"null");
+    songs=Array.isArray(cached)?cached:FALLBACK_SONGS;
+  }
+}
+function esc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[c]))}
+function norm(v){return String(v??"").toLocaleLowerCase("nb-NO").normalize("NFD").replace(/[\u0300-\u036f]/g,"")}
+function songByTitle(t){return songs.find(s=>s.title===t)} function isPlayed(t){return state.played.includes(t)} function isFav(t){return state.favorites.includes(t)}
+function save(){localStorage.setItem(KEY,JSON.stringify(state))}
+function sorted(a){return [...a].sort((x,y)=>x.title.localeCompare(y.title,"nb",{sensitivity:"base"}))}
+function bpmBand(b){if(!b)return"ukjent";if(b<90)return"rolig";if(b<120)return"middels";return"rask"}
+function matchFilter(s){if(activeFilter==="alle")return true;if(activeFilter==="favoritt")return isFav(s.title);if(activeFilter==="tell")return s.start==="TELL";if(activeFilter==="slowbpm")return s.bpm&&s.bpm<90;if(activeFilter==="midbpm")return s.bpm&&s.bpm>=90&&s.bpm<120;if(activeFilter==="fastbpm")return s.bpm&&s.bpm>=120;return(s.tags||[]).includes(activeFilter)||s.energy===activeFilter}
+function matchesSearch(s,q){if(!q)return true;return norm([s.title,s.artist,s.bpm?`${s.bpm} bpm`:"",s.start,s.energy,...(s.tags||[]),s.notes].join(" ")).includes(norm(q))}
+function makeCard(s,done=false){
+ const c=document.createElement("div");c.className="song"+(!done&&activeSong===s.title?" active":"");c.dataset.key=s.title;c.tabIndex=0;c.setAttribute("role","button");
+ const meta=[s.start?`<span class="badge start">${esc(s.start)}</span>`:"",s.bpm?`<span class="badge">${s.bpm} BPM</span>`:`<span class="badge">BPM ?</span>`,s.energy?`<span class="badge">${esc(s.energy)}</span>`:"",...(s.tags||[]).slice(0,3).map(x=>`<span class="badge">${esc(x)}</span>`)].join("");
+ c.innerHTML=`<div class="songhead"><div class="songname"><div class="title">${esc(s.title)}</div><div class="artist">${esc(s.artist)}</div></div>${done?"":`<button class="star ${isFav(s.title)?"on":""}" aria-label="Favoritt">${isFav(s.title)?"★":"☆"}</button>`}</div><div class="meta">${meta}</div>${done?"":`<div class="pulsewrap"><span class="pulsedot" id="pulse-${CSS.escape(s.title)}"></span><span class="pulsetext">${s.bpm?`${s.bpm} BPM`:"BPM ?"}</span><button class="pulsetoggle">${pulseEnabled?"Puls: på":"Puls: av"}</button></div>`}<div class="notes">${esc(s.notes).replace(/\n/g,"<br>")}</div>${done?"":`<div class="actions"><button class="markplayed">✓ MARKER SOM SPILT</button><button class="smallaction" title="Lukk">×</button></div>`}`;
+ if(done)c.addEventListener("click",()=>restoreSong(s.title)); else{
+  const toggle=e=>{if(e.target.closest("button"))return;activeSong=activeSong===s.title?null:s.title;render();if(activeSong)requestAnimationFrame(()=>document.querySelector(`.song[data-key="${CSS.escape(s.title)}"]`)?.scrollIntoView({behavior:"smooth",block:"center"}))};
+  c.addEventListener("click",toggle);c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();toggle(e)}});
+  c.querySelector(".star").onclick=e=>{e.stopPropagation();toggleFavorite(s.title)};c.querySelector(".markplayed").onclick=e=>{e.stopPropagation();markPlayed(s.title)};c.querySelector(".smallaction").onclick=e=>{e.stopPropagation();activeSong=null;render()};c.querySelector(".pulsetoggle").onclick=e=>{e.stopPropagation();togglePulse(s)}
+ } return c
+}
+function render(){
+ const q=$("search").value.trim(),available=sorted(songs.filter(s=>!isPlayed(s.title)&&matchFilter(s)&&matchesSearch(s,q))),done=sorted(songs.filter(s=>isPlayed(s.title)&&matchFilter(s)&&matchesSearch(s,q)));
+ $("remaining").replaceChildren(...available.map(s=>makeCard(s,false)));$("played").replaceChildren(...done.map(s=>makeCard(s,true)));
+ if(!available.length)$("remaining").innerHTML=`<div class="empty">${q||activeFilter!=="alle"?"Ingen treff.":"Alle låtene er spilt."}</div>`;if(!done.length&&(q||activeFilter!=="alle"))$("played").innerHTML=`<div class="empty">Ingen treff blant spilte låter.</div>`;
+ $("remainingCount").textContent=`${songs.length-state.played.length} igjen`;$("playedCount").textContent=`${state.played.length} spilt`;$("totalCount").textContent=`${songs.length} låter`;$("playedTotal").textContent=state.played.length;$("setNo").textContent=state.setNo;
+ const setStart=state.setStarts[state.setNo-1]??0;$("setCount").textContent=Math.max(0,state.history.length-setStart);$("wakeBtn").textContent=`Skjerm alltid på: ${wakeEnabled?"på":"av"}`;$("autoNextBtn").textContent=`Auto-neste: ${autoNext?"på":"av"}`;renderRecent();renderMode();if(pulseEnabled&&activeSong)startPulse(songByTitle(activeSong));else stopPulse()
+}
+function renderRecent(){const last=[...state.history].reverse().slice(0,5);$("recentSection").style.display=last.length?"block":"none";$("recentList").replaceChildren(...last.map(t=>{const s=songByTitle(t),e=document.createElement("button");e.className="recentitem";e.textContent=s?`${s.title} · ${s.artist}`:t;e.onclick=()=>restoreSong(t);return e}))}
+function markPlayed(t){
+  if(!isPlayed(t))state.played.push(t);
+  state.history=state.history.filter(x=>x!==t);
+  state.history.push(t);
+  const wasActive=activeSong===t;
+  const inScene=document.body.classList.contains("scene-mode");
+  save();
+
+  if(appMode==="forced"&&autoNext&&wasActive){
+    const next=nextForcedTitle();
+    activeSong=next||null;
+  }else if(wasActive){
+    activeSong=null;
+  }
+
+  if(appMode==="free"&&inScene){
+    sceneSuggestions=[];
+    renderScene();
+  }else{
+    render();
+  }
+  toast("Markert som spilt");
+}
+function restoreSong(t){state.played=state.played.filter(x=>x!==t);state.history=state.history.filter(x=>x!==t);save();render();toast("Flyttet tilbake til uspilt")}
+function toggleFavorite(t){state.favorites=isFav(t)?state.favorites.filter(x=>x!==t):[...state.favorites,t];save();render()}
+function toast(m){const e=$("toast");e.textContent=m;e.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>e.classList.remove("show"),1500)}
+
+function togglePulse(song){
+  if(!song || !song.bpm){toast("Mangler BPM");return}
+  pulseEnabled=!pulseEnabled;
+  if(pulseEnabled)startPulse(song);else stopPulse();
+  render();
+}
+function stopPulse(){
+  if(pulseTimer){clearInterval(pulseTimer);pulseTimer=null}
+  pulseBeat=0;
+  document.querySelectorAll(".pulsedot,.scenePulse").forEach(d=>d.classList.remove("beat","downbeat"));
+}
+function startPulse(song){
+  stopPulse();
+  if(!pulseEnabled||!song||!song.bpm)return;
+  const effectiveBpm=pulseHalf?song.bpm/2:song.bpm;
+  const interval=60000/effectiveBpm;
+  pulseBeat=0;
+  const beat=()=>{
+    pulseBeat=(pulseBeat%4)+1;
+    const dots=[...document.querySelectorAll(".song.active .pulsedot"),$("scenePulse")].filter(Boolean);
+    dots.forEach(dot=>{
+      dot.classList.add("beat");
+      if(pulseAccent&&pulseBeat===1)dot.classList.add("downbeat");
+      setTimeout(()=>dot.classList.remove("beat","downbeat"),Math.min(140,interval*.35));
+    });
+  };
+  beat();
+  pulseTimer=setInterval(beat,interval);
+}
+function saveForced(){
+  localStorage.setItem("gig-settliste-projects-v1",JSON.stringify(forcedProjects));
+  localStorage.setItem("gig-settliste-active-project-v1",activeProjectId);
+}
+function setMode(mode){
+  appMode=mode;
+  localStorage.setItem("gig-settliste-mode-v1",mode);
+  renderMode();
+}
+function renderProjects(){
+  const sel=$("projectSelect");
+  if(!sel)return;
+  sel.innerHTML=forcedProjects.map(p=>`<option value="${esc(p.id)}">${esc(p.name)}</option>`).join("");
+  sel.value=activeProjectId;
+}
+function renderMode(){
+  $("freeModeBtn").classList.toggle("active",appMode==="free");
+  $("forcedModeBtn").classList.toggle("active",appMode==="forced");
+  $("forcedPanel").classList.toggle("show",appMode==="forced");
+  $("suggestBtn").style.display=appMode==="forced"?"none":"block";
+  renderProjects();
+  renderForcedSet();
+}
+function renderForcedSet(){
+  const list=$("forcedList");
+  if(!list)return;
+  const forcedSet=currentSet();
+  $("songOptions").innerHTML=songs.map(s=>`<option value="${esc(s.title)}">${esc(s.artist)}</option>`).join("");
+
+  if(!forcedSet.length){
+    list.innerHTML='<div class="empty">Ingen tvungen settliste valgt.</div>';
+    $("forcedNext").style.display="none";
+    renderScene();
+    return;
+  }
+
+  list.innerHTML=forcedSet.map((item,i)=>{
+    if(item.type==="pause"){
+      return `<div class="forceditem pauseitem" data-index="${i}">
+        <div class="num">${i+1}</div>
+        <div class="fmeta"><strong>— PAUSE —</strong><small>${esc(item.label||"Settpause")}</small></div>
+        <button data-up-index="${i}" title="Flytt opp">↑</button>
+        <button data-down-index="${i}" title="Flytt ned">↓</button>
+      </div>`;
+    }
+
+    const title=item.title;
+    const s=songByTitle(title);
+    if(!s)return"";
+    return `<div class="forceditem ${isPlayed(title)?"playedset":""} ${activeSong===title?"activeforced":""}" data-title="${esc(title)}" data-index="${i}">
+      <div class="num">${i+1}</div>
+      <div class="fmeta"><strong>${esc(s.title)}</strong><small>${esc(s.artist)}${s.bpm?` · ${s.bpm} BPM`:""}</small></div>
+      <button data-up-index="${i}" title="Flytt opp">↑</button>
+      <button data-down-index="${i}" title="Flytt ned">↓</button>
+      <button data-remove-index="${i}" title="Fjern">×</button>
+    </div>`;
+  }).join("");
+
+  const nextTitle=nextForcedTitle();
+  const nextSong=songByTitle(nextTitle);
+  if(nextSong){
+    $("forcedNext").style.display="block";
+    $("forcedNext").textContent=`Neste: ${nextSong.title} · ${nextSong.artist}`;
+  }else{
+    $("forcedNext").style.display="block";
+    $("forcedNext").textContent="Ingen flere låter i settlisten.";
+  }
+  renderScene();
+}
+function nextForcedTitle(){
+  const set=currentSet();
+  const startIndex=activeSong?set.findIndex(x=>x.type==="song"&&x.title===activeSong):-1;
+  for(let i=startIndex+1;i<set.length;i++){
+    if(set[i].type==="pause")continue;
+    if(!isPlayed(set[i].title))return set[i].title;
+  }
+  for(let i=0;i<set.length;i++){
+    if(set[i].type==="pause")continue;
+    if(!isPlayed(set[i].title))return set[i].title;
+  }
+  return null;
+}
+function previousForcedTitle(){
+  const set=currentSet();
+  const idx=activeSong?set.findIndex(x=>x.type==="song"&&x.title===activeSong):-1;
+  if(idx<0)return null;
+  for(let i=idx-1;i>=0;i--)if(set[i].type==="song")return set[i].title;
+  return null;
+}
+function activateForcedSong(title){
+  const s=songByTitle(title);
+  if(!s)return;
+  if(isPlayed(title)){
+    state.played=state.played.filter(t=>t!==title);
+    state.history=state.history.filter(t=>t!==title);
+    save();
+  }
+  activeSong=title;
+  activeFilter="alle";
+  $("search").value=title;
+  syncFilterUI();
+  render();
+  requestAnimationFrame(()=>{
+    document.querySelector(`.song[data-key="${CSS.escape(title)}"]`)?.scrollIntoView({behavior:"smooth",block:"center"});
+  });
+}
+function addSongToForced(){
+  const raw=$("setSongSearch").value.trim();
+  if(!raw)return;
+  const found=songs.find(s=>norm(s.title)===norm(raw))||songs.find(s=>norm(s.title).includes(norm(raw)));
+  if(!found){alert("Fant ikke låten.");return}
+  currentSet().push({type:"song",title:found.title});
+  $("setSongSearch").value="";
+  saveForced();
+  renderForcedSet();
+}
+function addPause(){
+  const label=prompt("Navn på pausen:", "Settpause");
+  if(label===null)return;
+  currentSet().push({type:"pause",label:label.trim()||"Settpause"});
+  saveForced();
+  renderForcedSet();
+}
+function createProject(){
+  const name=prompt("Navn på ny settliste/prosjekt:");
+  if(!name)return;
+  const id="p"+Date.now();
+  forcedProjects.push({id,name:name.trim(),items:[]});
+  activeProjectId=id;
+  saveForced();
+  renderMode();
+}
+function renameProject(){
+  const p=currentProject();
+  const name=prompt("Nytt navn:",p.name);
+  if(!name)return;
+  p.name=name.trim();
+  saveForced();
+  renderMode();
+}
+function openScene(){
+  document.body.classList.add("scene-mode");
+
+  if(appMode==="forced"){
+    if(!activeSong){
+      const next=nextForcedTitle();
+      if(next)activeSong=next;
+    }
+  }else{
+    // In free mode, use current active song if there is one.
+    // Otherwise show suggestions immediately.
+    refreshSceneSuggestions();
+  }
+
+  renderScene();
+}
+function closeScene(){
+  document.body.classList.remove("scene-mode");
+  stopPulse();
+  render();
+}
+function refreshSceneSuggestions(){
+  const pool=songs.filter(s=>!isPlayed(s.title)&&s.title!==activeSong);
+  const recent=state.history.slice(-5);
+  sceneSuggestions=pool
+    .map(s=>({s,score:suggestionScore(s,recent)}))
+    .sort((a,b)=>b.score-a.score)
+    .slice(0,3)
+    .map(x=>x.s.title);
+  renderScene();
+}
+function chooseSceneSuggestion(title){
+  const s=songByTitle(title);
+  if(!s)return;
+  activeSong=title;
+  sceneSuggestions=[];
+  renderScene();
+}
+function renderScene(){
+  if(!$("sceneTitle"))return;
+  const s=songByTitle(activeSong);
+
+  if(!s){
+    $("sceneTitle").textContent=appMode==="free"?"Velg neste låt":"Ingen aktiv låt";
+    $("sceneArtist").textContent="";
+    $("sceneBpm").textContent="— BPM";
+    $("sceneStart").style.display="none";
+  }else{
+    $("sceneTitle").textContent=s.title;
+    $("sceneArtist").textContent=s.artist;
+    $("sceneBpm").textContent=s.bpm?`${s.bpm} BPM`:"BPM ?";
+    $("sceneStart").textContent=s.start||"";
+    $("sceneStart").style.display=s.start?"inline-flex":"none";
+  }
+
+  $("scenePulseToggle").textContent=`Puls: ${pulseEnabled?"på":"av"}`;
+  $("sceneHalfToggle").textContent=`Halvtempo: ${pulseHalf?"på":"av"}`;
+  $("sceneAccentToggle").textContent=`4/4-accent: ${pulseAccent?"på":"av"}`;
+
+  const queueEl=$("sceneQueue");
+
+  if(appMode==="free"){
+    $("scenePrevBtn").style.display="none";
+    $("sceneRefreshBtn").style.display="block";
+    $("scenePlayedBtn").style.display=s?"block":"none";
+
+    if(!sceneSuggestions.length){
+      const pool=songs.filter(x=>!isPlayed(x.title)&&x.title!==activeSong);
+      const recent=state.history.slice(-5);
+      sceneSuggestions=pool
+        .map(x=>({s:x,score:suggestionScore(x,recent)}))
+        .sort((a,b)=>b.score-a.score)
+        .slice(0,3)
+        .map(x=>x.s.title);
+    }
+
+    queueEl.innerHTML=sceneSuggestions.length
+      ? sceneSuggestions.map(title=>{
+          const q=songByTitle(title);
+          if(!q)return"";
+          const why=suggestionReason(q,state.history.slice(-5));
+          return `<div class="qitem" data-scene-title="${esc(q.title)}">
+            <strong>${esc(q.title)}</strong>
+            <small>${esc(q.artist)}${q.bpm?` · ${q.bpm} BPM`:""}${why.length?` · ${esc(why.join(" · "))}`:""}</small>
+          </div>`;
+        }).join("")
+      : '<div class="qitem"><small>Ingen uspilt låter igjen.</small></div>';
+  }else{
+    $("scenePrevBtn").style.display="block";
+    $("sceneRefreshBtn").style.display="none";
+    $("scenePlayedBtn").style.display=s?"block":"none";
+
+    const queue=[];
+    const set=currentSet();
+    const idx=activeSong?set.findIndex(x=>x.type==="song"&&x.title===activeSong):-1;
+    for(let i=idx+1;i<set.length&&queue.length<2;i++){
+      if(set[i].type==="pause"){
+        queue.push({pause:true,label:set[i].label||"Settpause"});
+        continue;
+      }
+      const q=songByTitle(set[i].title);
+      if(q)queue.push(q);
+    }
+
+    queueEl.innerHTML=queue.length
+      ? queue.map(q=>q.pause
+          ? `<div class="qitem"><strong>— PAUSE —</strong><small>${esc(q.label)}</small></div>`
+          : `<div class="qitem" data-scene-title="${esc(q.title)}"><strong>${esc(q.title)}</strong><small>${esc(q.artist)}</small></div>`
+        ).join("")
+      : '<div class="qitem"><small>Ingen flere elementer.</small></div>';
+  }
+
+  if(document.body.classList.contains("scene-mode")&&pulseEnabled&&s)startPulse(s);
+}
+
+function suggestionScore(s,recent){
+  let n=Math.random()*1.5;
+  const recentSongs=recent.map(songByTitle).filter(Boolean);
+  const last=recentSongs.at(-1);
+
+  if(isFav(s.title)) n+=4;
+
+  if(last){
+    n+=s.artist!==last.artist?4:-9;
+    n+=bpmBand(s.bpm)!==bpmBand(last.bpm)?1.75:-1;
+
+    const overlap=(s.tags||[]).filter(t=>(last.tags||[]).includes(t)).length;
+    n-=overlap*1.4;
+
+    if(s.energy!==last.energy) n+=1.25;
+  }
+
+  const artistCount=recentSongs.filter(r=>r.artist===s.artist).length;
+  n-=artistCount*3.5;
+
+  const sameBandCount=recentSongs.filter(r=>bpmBand(r.bpm)===bpmBand(s.bpm)).length;
+  n-=sameBandCount*0.7;
+
+  const sameEnergyCount=recentSongs.filter(r=>r.energy===s.energy).length;
+  n-=sameEnergyCount*0.9;
+
+  for(const tag of (s.tags||[])){
+    const count=recentSongs.filter(r=>(r.tags||[]).includes(tag)).length;
+    n-=count*0.55;
+  }
+
+  const last3=recentSongs.slice(-3);
+  if(last3.length===3 && last3.every(r=>r.energy===last3[0].energy)){
+    if(s.energy!==last3[0].energy) n+=3.5;
+    else n-=3.5;
+  }
+
+  const last2=recentSongs.slice(-2);
+  if(last2.length===2 && last2.every(r=>r.energy==="rolig")){
+    if(s.energy==="høy") n+=4;
+    else if(s.energy==="middels") n+=2.5;
+    else n-=4;
+  }
+
+  if(last2.length===2 && last2.every(r=>r.energy==="høy")){
+    if(s.energy==="middels") n+=2.5;
+    else if(s.energy==="rolig") n+=1.5;
+    else n-=1.5;
+  }
+
+  return n;
+}
+
+function suggestionReason(s,recent){
+  const recentSongs=recent.map(songByTitle).filter(Boolean);
+  const last=recentSongs.at(-1);
+  const reasons=[];
+
+  if(isFav(s.title)) reasons.push("★ favoritt");
+  if(last && s.artist!==last.artist) reasons.push("ny artist");
+  if(last && bpmBand(s.bpm)!==bpmBand(last.bpm)) reasons.push("tempo-variasjon");
+  if(last && s.energy!==last.energy) reasons.push("energi-variasjon");
+
+  const last2=recentSongs.slice(-2);
+  if(last2.length===2 && last2.every(r=>r.energy==="rolig") && s.energy!=="rolig"){
+    reasons.push("løfter energien");
+  }
+  if(last2.length===2 && last2.every(r=>r.energy==="høy") && s.energy!=="høy"){
+    reasons.push("gir luft");
+  }
+
+  return reasons.slice(0,3);
+}
+
+function showSuggestions(){
+  const pool=songs.filter(s=>!isPlayed(s.title));
+  const recent=state.history.slice(-5);
+  const scored=pool
+    .map(s=>({s,score:suggestionScore(s,recent)}))
+    .sort((a,b)=>b.score-a.score)
+    .slice(0,3);
+
+  $("suggestions").replaceChildren(...scored.map(({s})=>{
+    const b=document.createElement("button");
+    b.className="suggestion";
+
+    const info=[s.bpm?`${s.bpm} BPM`:"BPM ?",...(s.tags||[]).slice(0,2)];
+    const why=suggestionReason(s,recent);
+
+    b.innerHTML=`<strong>${esc(s.title)}</strong><small>${esc(s.artist)}</small><span class="reason">${esc(info.join(" · "))}${why.length?`<br>${esc(why.join(" · "))}`:""}</span>`;
+
+    b.onclick=()=>{
+      activeSong=s.title;
+      $("suggestDialog").close();
+      $("search").value=s.title;
+      activeFilter="alle";
+      syncFilterUI();
+      render();
+      requestAnimationFrame(()=>{
+        document.querySelector(`.song[data-key="${CSS.escape(s.title)}"]`)?.scrollIntoView({
+          behavior:"smooth",
+          block:"center"
+        });
+      });
+    };
+
+    return b;
+  }));
+
+  if(!scored.length){
+    $("suggestions").innerHTML='<div class="empty">Alle låtene er spilt.</div>';
+  }
+
+  $("suggestDialog").showModal();
+}
+
+function syncFilterUI(){document.querySelectorAll(".chip").forEach(b=>b.classList.toggle("active",b.dataset.filter===activeFilter))}
+$("freeModeBtn").onclick=()=>setMode("free");
+$("forcedModeBtn").onclick=()=>setMode("forced");
+$("freeSceneBtn").onclick=()=>{setMode("free");openScene()};
+$("addToSetBtn").onclick=addSongToForced;
+$("addPauseBtn").onclick=addPause;
+$("clearSetBtn").onclick=()=>{if(confirm("Tømme den tvungne settlisten?")){currentProject().items=[];saveForced();renderForcedSet()}};
+$("newProjectBtn").onclick=createProject;
+$("renameProjectBtn").onclick=renameProject;
+$("projectSelect").onchange=e=>{activeProjectId=e.target.value;saveForced();activeSong=null;renderMode()};
+$("sceneModeBtn").onclick=()=>{setMode("forced");openScene()};
+$("sceneExitBtn").onclick=closeScene;
+$("sceneRefreshBtn").onclick=refreshSceneSuggestions;
+$("sceneQueue").onclick=e=>{const card=e.target.closest("[data-scene-title]");if(card)chooseSceneSuggestion(card.dataset.sceneTitle)};
+$("scenePlayedBtn").onclick=()=>{if(activeSong)markPlayed(activeSong)};
+$("scenePrevBtn").onclick=()=>{const p=previousForcedTitle();if(p){activeSong=p;renderScene()}};
+$("scenePulseToggle").onclick=()=>{const s=songByTitle(activeSong);if(s)togglePulse(s)};
+$("sceneHalfToggle").onclick=()=>{pulseHalf=!pulseHalf;localStorage.setItem("gig-settliste-pulse-half-v1",pulseHalf?"1":"0");renderScene()};
+$("sceneAccentToggle").onclick=()=>{pulseAccent=!pulseAccent;localStorage.setItem("gig-settliste-pulse-accent-v1",pulseAccent?"1":"0");renderScene()};
+$("forcedList").onclick=e=>{
+  const up=Number(e.target.dataset.upIndex);
+  const down=Number(e.target.dataset.downIndex);
+  const remove=Number(e.target.dataset.removeIndex);
+  const set=currentSet();
+
+  if(Number.isInteger(up)){
+    e.stopPropagation();
+    if(up>0){[set[up-1],set[up]]=[set[up],set[up-1]];saveForced();renderForcedSet()}
+    return;
+  }
+  if(Number.isInteger(down)){
+    e.stopPropagation();
+    if(down<set.length-1){[set[down+1],set[down]]=[set[down],set[down+1]];saveForced();renderForcedSet()}
+    return;
+  }
+  if(Number.isInteger(remove)){
+    e.stopPropagation();
+    set.splice(remove,1);saveForced();renderForcedSet();return;
+  }
+
+  const card=e.target.closest(".forceditem");
+  if(card?.dataset.title)activateForcedSong(card.dataset.title);
+};
+$("search").addEventListener("input",render);$("clearSearch").onclick=()=>{$("search").value="";render();$("search").focus()};$("suggestBtn").onclick=showSuggestions;$("refreshSuggestions").onclick=showSuggestions;$("closeDialog").onclick=()=>$("suggestDialog").close();
+$("filters").onclick=e=>{const b=e.target.closest(".chip");if(!b)return;activeFilter=b.dataset.filter;syncFilterUI();render()};$("undoBtn").onclick=()=>{const last=state.history.at(-1);last?restoreSong(last):toast("Ingen låt å angre")};
+$("newSetBtn").onclick=()=>{state.setNo+=1;state.setStarts.push(state.history.length);save();render();toast(`Sett ${state.setNo} startet`)};
+$("resetBtn").onclick=()=>{if(confirm("Nullstille hele kvelden?\n\nSpilt-status, historikk og sett-teller nullstilles. Favoritter beholdes.")){state.played=[];state.history=[];state.setNo=1;state.setStarts=[0];activeSong=null;save();render();window.scrollTo({top:0,behavior:"smooth"})}};
+$("exportBtn").onclick=()=>{const payload={version:3,exportedAt:new Date().toISOString(),songs,state},blob=new Blob([JSON.stringify(payload,null,2)],{type:"application/json"}),url=URL.createObjectURL(blob),a=document.createElement("a");a.href=url;a.download=`gig-settliste-${new Date().toISOString().slice(0,10)}.json`;a.click();URL.revokeObjectURL(url)};
+$("importInput").addEventListener("change",async e=>{
+  const f=e.target.files[0];
+  if(!f)return;
+
+  try{
+    const d=JSON.parse(await f.text());
+
+    // Format 1: ren songs.json fra editoren
+    if(Array.isArray(d)){
+      if(!d.every(song=>song && typeof song.title==="string" && typeof song.artist==="string")){
+        throw new Error("Ugyldig songs.json");
+      }
+
+      songs=d;
+      localStorage.setItem(REP_KEY,JSON.stringify(songs));
+
+      // Behold kveldens state/favoritter. Fjern bare referanser til låter som ikke lenger finnes.
+      const validTitles=new Set(songs.map(song=>song.title));
+      state.played=state.played.filter(title=>validTitles.has(title));
+      state.history=state.history.filter(title=>validTitles.has(title));
+      state.favorites=state.favorites.filter(title=>validTitles.has(title));
+
+      save();
+      render();
+      toast("Repertoar importert");
+    }
+
+    // Format 2: full backup eksportert fra hovedappen
+    else if(Array.isArray(d.songs) && d.state){
+      songs=d.songs;
+      state=d.state;
+      state.played||=[];
+      state.history||=[];
+      state.favorites||=[];
+      state.setNo||=1;
+      state.setStarts||=[0];
+
+      localStorage.setItem(REP_KEY,JSON.stringify(songs));
+      save();
+      render();
+      toast("Backup importert");
+    }
+
+    else{
+      throw new Error("Ugyldig filformat");
+    }
+  }catch(err){
+    alert("Kunne ikke importere JSON-filen: "+err.message);
+  }
+
+  e.target.value="";
+});
+async function updateWake(){if(!wakeEnabled||!("wakeLock"in navigator)){if(wakeLock){await wakeLock.release().catch(()=>{});wakeLock=null}return}try{wakeLock=await navigator.wakeLock.request("screen")}catch{toast("Wake Lock støttes ikke her")}}
+$("wakeBtn").onclick=async()=>{wakeEnabled=!wakeEnabled;localStorage.setItem(WAKE_KEY,wakeEnabled?"1":"0");await updateWake();render()};$("autoNextBtn").onclick=()=>{autoNext=!autoNext;localStorage.setItem("gig-settliste-autonext-v1",autoNext?"1":"0");render()};document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible"&&wakeEnabled)updateWake()});
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))navigator.serviceWorker.register("./service-worker.js").catch(()=>{});
+loadSongs().then(()=>{render();updateWake();});
+</script>
+</body>
+</html>
