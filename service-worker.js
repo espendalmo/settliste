@@ -1,4 +1,4 @@
-const CACHE="gig-settliste-v6.3";
+const CACHE="gig-settliste-v6.4";
 const STATIC=["./","./index.html","./editor.html","./manifest.webmanifest","./icon-192.png","./icon-512.png"];
 
 self.addEventListener("install",event=>{

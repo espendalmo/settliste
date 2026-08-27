@@ -1,559 +1,535 @@
-{
-  "version": 3,
-  "exportedAt": "2026-08-27T12:05:39.077Z",
-  "songs": [
-    {
-      "title": "Abracadabra",
-      "artist": "Steve Miller Band",
-      "bpm": 129,
-      "start": "TELL",
-      "energy": "høy",
-      "tags": [
-        "rock",
-        "dans"
-      ],
-      "notes": "Tell 1-2-3-4-1-2-3-BAM > Rett på med skarpslag - crash (S BB). Disco beat, gå over til ride helt mot slutten. Dovregubben på slutten, gitar alene, rock outro."
-    },
-    {
-      "title": "Black Magic Woman",
-      "artist": "Santana",
-      "bpm": 124,
-      "start": "BJELLE",
-      "energy": "middels",
-      "tags": [
-        "latin",
-        "rock",
-        "blues"
-      ],
-      "notes": "To x klakk på bjelle før hi-hat. 2 veiver, før overgang til vers. Kubjelle + hi-hat + kantslag på vers. Ride + solo > vers m/kubjelle. Siste runde med hh. 7 ridecrash på slutten."
-    },
-    {
-      "title": "Breakfast In America",
-      "artist": "Supertramp",
-      "notes": "Intro på gitar > inn etter to takter, med minivirvel. Stopp etter slutt på ref. Leken ride på bridge, kort. Stopp. Naa-naa. Slutter med ride + crash. Rit på slutten.",
-      "bpm": 75,
-      "start": "GITAR",
-      "tags": [
-        "pop",
-        "rolig"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "Brown Eyed Girl",
-      "artist": "Van Morrison",
-      "bpm": 150,
-      "start": "TELL",
-      "energy": "høy",
-      "tags": [
-        "pop",
-        "dans",
-        "singalong"
-      ],
-      "notes": "Tell opp, Halvslag hi-hat fra start, husk kant slag i intro 4. slag bass\nFader ut?"
-    },
-    {
-      "title": "Can’t Help Falling In Love",
-      "artist": "Elvis Presley",
-      "bpm": 100,
-      "start": "RETT PÅ",
-      "energy": "rolig",
-      "tags": [
-        "rolig",
-        "ballade"
-      ],
-      "notes": "Rett på med visper eller rods 16-dels hi hat + basstromme. Rit på slutten"
-    },
-    {
-      "title": "Come Together",
-      "artist": "The Beatles",
-      "notes": "Husk klut over gulvtam. Tell opp: 4x hh > vers > 4x hh > vers > 4x hh > vers > 2x hh > overg. crash/ride rytme (solo) > stopp. Vers g.tom > 4x hh > overg. crash/ride rytme (outro).",
-      "bpm": 83,
-      "start": "TELL",
-      "tags": [
-        "rock",
-        "groove"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "Crazy Little Thing Called Love",
-      "artist": "Queen",
-      "notes": "Beg. med gitar. Elvis swing beat på hi-hat > stopp på hvert vers. Husk brekk på slutt av ref, klikking etter første bass. Etter solo, slutt med dempet crash > brekk > til klappeparti > ‘love’, kom inn igjen med skarp > vers > Når ikke synger mer, stopp med 1-2-3-4-5-6 på ride",
-      "bpm": 152,
-      "start": "GITAR",
-      "tags": [
-        "rock",
-        "dans"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Dead Flowers",
-      "artist": "The Rolling Stones",
-      "notes": "Litt fart her. Tell opp, starter med roll, kommer > 4/4. Avslutter etter siste “Won’t forget to put roses on your grave” 1-2-krasj",
-      "bpm": 130,
-      "start": "TELL",
-      "tags": [
-        "rock",
-        "country"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Deidres Samba",
-      "artist": "Cornelis Vreeswijk",
-      "bpm": null,
-      "start": "TELL",
-      "energy": "rolig",
-      "tags": [
-        "samba",
-        "rolig"
-      ],
-      "notes": "Enkeltslag bass, kantspilling samba. Varier på kubjelle."
-    },
-    {
-      "title": "Dimples",
-      "artist": "John Lee Hooker",
-      "notes": "Blues: Beg. m/gitar, gå over til (B S B S BB) + swingride på hi-hsy. Varier med ride og crash. Husk slutt, hold slagene på skarp i basslinje, slutt.",
-      "bpm": 137,
-      "start": "GITAR",
-      "tags": [
-        "blues",
-        "dans"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Englishman In New York",
-      "artist": "Sting",
-      "notes": "Tell opp, begynner m/tom TT T splash > hi-hat virvel/splash + b.tromme + kantslag (gjennomgående) > ref. ride > vers > ref. ride > overgang til bridge > stadion-basstromme-veiv x 2 > roll overg. til vers + 6 x ‘be your self’ singalon > ref > roll overg. til stadion beat 2 x > slutt.",
-      "bpm": 102,
-      "start": "TELL",
-      "tags": [
-        "pop",
-        "reggae"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "Folsom Prison Blues",
-      "artist": "Johnny Cash",
-      "notes": "Intro på gitar + b.tromme -> Train beat. Ride på solo To ganger på slutten, før avslutn.",
-      "bpm": 102,
-      "start": "GITAR",
-      "tags": [
-        "country",
-        "dans"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "From Hank to Hendrix",
-      "artist": "Neil Young",
-      "notes": "For det meste stomping på hi-hat, veksle med soft beat",
-      "bpm": 109,
-      "start": "RETT PÅ",
-      "tags": [
-        "rolig",
-        "country"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "Get It On",
-      "artist": "T. Rex",
-      "notes": "Beg. m/gitar. Kommer inn m S B, S B. 4/4 hi-hat > Alle slag på ‘Get in on’. Stopp etter tredje ref. «Get in on», en takt etter.",
-      "bpm": 127,
-      "start": "GITAR",
-      "tags": [
-        "rock",
-        "dans"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Help Me",
-      "artist": "Sonny Boy Williamson II",
-      "notes": "Rett på. Slow blues, slepende visper eller mutet driv (BSBSBSSBS) Ride på slutten. Stopp, to slag på ride helt slutt.",
-      "bpm": 114,
-      "start": "RETT PÅ",
-      "tags": [
-        "blues",
-        "rolig"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "Human",
-      "artist": "The Killers",
-      "notes": "Rett på med hi-hat 16-del. Gå på med pumpebass > kutt hi-hat på første ref (kun b.tromme) > over til beat med gulvtam ut låta > evt veiv med kun basstr. for singalong > over til kun b.tromme (stopp rett før ‘are we dancer’).",
-      "bpm": 135,
-      "start": "RETT PÅ",
-      "tags": [
-        "pop",
-        "dans",
-        "singalong"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "I Heard It Through The Grapewine",
-      "artist": "Creedence Clearwater Revival",
-      "notes": "Tell opp: Rett på med hi-hat på 2. slag (4 takter), før kommer inn på 4/4. Etter ref > tam-er i 8 takter (3 ganger) > solo > avslutn.",
-      "bpm": 119,
-      "start": "TELL",
-      "tags": [
-        "rock",
-        "groove"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "I Shot The Sheriff",
-      "artist": "Eric Clapton",
-      "notes": "Git start > Start med hh+b.tromme > kommer inn T SS T. Etter 3. vers, to runder før avslutning.",
-      "bpm": 94,
-      "start": "GITAR",
-      "tags": [
-        "reggae",
-        "blues"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "I’m Gonna Be (500 Miles)",
-      "artist": "The Proclaimers",
-      "notes": "Tell opp > Starter med hi-hat, går over til b.trommeslag + skarp. To vers -> ref, nananana. Stopp. Intro med basslag + skarp to takter, kommer mer inn. Husk stopp, synkope ‘coming hooome’. Bygger opp før siste vers/ref.",
-      "bpm": 132,
-      "start": "TELL",
-      "tags": [
-        "pop",
-        "dans",
-        "singalong"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "I’ll Be Your Baby Tonight",
-      "artist": "Bob Dylan",
-      "notes": "Tell opp: Rett på med enkel 4/4 (HSHS), perk på 3. vers > ‘stopp’ med perk etter big fat moon’s gonna shine like a spoon. Husk egen outtro, kjør som vanlig.",
-      "bpm": 128,
-      "start": "TELL",
-      "tags": [
-        "country",
-        "rolig"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "Is This Love",
-      "artist": "Bob Marley",
-      "bpm": 122,
-      "start": "TELL",
-      "energy": "høy",
-      "tags": [
-        "reggae",
-        "dans"
-      ],
-      "notes": "Tell opp sakte, husk tempo, rett på med kantslag. Alle b-slag. Krydre med perk."
-    },
-    {
-      "title": "La Bamba",
-      "artist": "Los Lobos",
-      "notes": "Gitarintro, beat over annenhver tom. Husk hardt stopp etter første vers, hardt stopp etter solo. En runde med bamba, så Beatles-slutt.",
-      "bpm": 161,
-      "start": "GITAR",
-      "tags": [
-        "latin",
-        "dans",
-        "singalong"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Light My Fire",
-      "artist": "The Doors",
-      "notes": "Tell opp 1-2-3-4-1-2-3-smekk! Husk egen vri etter solo. Etter solo, 1-2-3-4, 1-2-3-4, deretter vers + ref. 2x. Etter stopp, tell 1-2-3-smekk! til avslutning. Husk rit!",
-      "bpm": 129,
-      "start": "TELL",
-      "tags": [
-        "rock"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Make Me Smile (Come Up and See Me)",
-      "artist": "Steve Harley & Cockney Rebel",
-      "notes": "Beg m/skala git/bass, 1111-11 på gulvtom, trommer inn på «You got it all». Husk harde stopp. Kan hende prat i mellom. Slutten; ref i ett to ganger, 4 slag på slutten.",
-      "bpm": 144,
-      "start": "GITAR/BASS",
-      "tags": [
-        "rock",
-        "pop",
-        "singalong"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Man of the World",
-      "artist": "Peter Green",
-      "notes": "Gitarintro, to veiv + mellomspill. Første vers uten trommer. Hi hat + B BB S (kantslag). Hardt stopp etter første veiv med trommer. Vent på gitar, hh + kant > Gå over til hard ride + skarp-rytme, en veiv. Outro kun gitar. Kommer inn helt på slutt med ride x 2.",
-      "bpm": 92,
-      "start": "GITAR",
-      "tags": [
-        "blues",
-        "rolig"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "No Place To Go",
-      "artist": "Fleetwood Mac",
-      "notes": "Blues, starter med gitar, kommer inn på off-rytme, ride swing + skarp (annenhvert basslag). Gjennomgående likt.",
-      "bpm": 144,
-      "start": "GITAR",
-      "tags": [
-        "blues"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Oh Baby",
-      "artist": "Status Quo",
-      "notes": "Git. start, bygger opp rytme til «I wanna be your dog-rytme». Lettere på vers. 4/4 hi-hat. Ride på solodel (blues). Husk brekk på bridge. Slutter med brekkene fra bridge.",
-      "bpm": null,
-      "start": "GITAR",
-      "tags": [
-        "rock",
-        "blues"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "People Are Strange",
-      "artist": "The Doors",
-      "notes": "Beg m/ gitar. Inn inn på ref. Med harde stopp, siste slag etter ‘rain’. Ride + ghost. Stopp etter solo. Stopper på «When your.. strange».",
-      "bpm": 119,
-      "start": "GITAR",
-      "tags": [
-        "rock",
-        "pop"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "Perfectly Lonely",
-      "artist": "John Mayer",
-      "bpm": 92,
-      "start": "GITAR",
-      "energy": "middels",
-      "tags": [
-        "pop",
-        "groove"
-      ],
-      "notes": "To støt på gitar, så ridedrevet 4/4. Over til hh på vers (HUSK BAKPÅ ref. Steve Jordan). Veksle over til ride på gitarveiv. Intro til bridge med 8x singelslag, over til ride."
-    },
-    {
-      "title": "Rosie",
-      "artist": "John Mayer",
-      "notes": "Tell opp sakte > Rett på med hi hat + skarp (B S BB B). Ride på vers. Virvel før solo. 8 takter på slutten.",
-      "bpm": 139,
-      "start": "TELL",
-      "tags": [
-        "pop",
-        "groove"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Ruby",
-      "artist": "Gary Holton & Casino Steel",
-      "notes": "2 takter sakte 16-del, pause hi-hat > Stopp på slutten av ref. etter «Oh Ruuby.. +». Husk gulvtom + hi hat. Begynn beat igjen etter siste vokal før bam/stopp.",
-      "bpm": 97,
-      "start": "HH",
-      "tags": [
-        "country",
-        "pop"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "Sad Eyes",
-      "artist": "Bruce Springsteen",
-      "notes": "Beg. gitar, kommer inn etter 1 takt, kantslag + hi-hat, soft/lounge\nStopp etter “Come on dressed, one more step”, hold på hi-hat. Ref inn igjen etter kort pause.",
-      "bpm": 115,
-      "start": "GITAR",
-      "tags": [
-        "rolig",
-        "pop"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "Start Me Up",
-      "artist": "The Rolling Stones",
-      "notes": "Begynner med gitar, trommer kommer inn med hi-hat splash + basstromme. Enkeltslag skarp. Deretter hente inn hihat-rytme. Ride på ref.",
-      "bpm": 122,
-      "start": "GITAR",
-      "tags": [
-        "rock",
-        "dans"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Sunny Afternoon",
-      "artist": "The Kinks",
-      "notes": "Husk tempo! 122. Beg med bass, kommer inn med 1-2-3-4-5-6 skarp. Soft beat hi-hat 4/4.",
-      "bpm": 123,
-      "start": "BASS",
-      "tags": [
-        "pop",
-        "rolig",
-        "singalong"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "Take Me Home, Country Roads",
-      "artist": "John Denver",
-      "notes": "Git. start, hold tap på skarp. Jazz stomp, visper beg. på refreng.",
-      "bpm": 83,
-      "start": "GITAR",
-      "tags": [
-        "country",
-        "singalong"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "The Thrill Is Gone",
-      "artist": "Gary Moore feat. BB King",
-      "notes": "Husk tempo! Blues, kommer inn litt etter bass. Hi-hat + kantslag.\nEtter første vers, kom inn med fast rytme skarp. Solo. Varier med kantslag pianoissimo på solo underveis.",
-      "bpm": 91,
-      "start": "BASS",
-      "tags": [
-        "blues",
-        "rolig"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "The Weight",
-      "artist": "The Band",
-      "notes": "Beg. m/gitar 2 takter, sakte roll overg. Kort solo > siste vers + ref > to runder etter ‘slutt’.",
-      "bpm": 72,
-      "start": "GITAR",
-      "tags": [
-        "rock",
-        "singalong"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "Time Is On My Side",
-      "artist": "The Rolling Stones",
-      "notes": "Husk tempo: Beg. m/gitar. Trommer inn på ref. Sakte blues-ride > time time time x 3 > 1-2-3-4-5—6 på ride.",
-      "bpm": 109,
-      "start": "GITAR",
-      "tags": [
-        "blues",
-        "rolig"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "Use Somebody",
-      "artist": "Kings Of Leon",
-      "notes": "Tell opp: Rett på med crashriderytme. Stopp på 1. vers. Bygger opp på 2. vers. > ref crashride > vanlig rytme på 3. vers + bygger opp til crashride ref. Bridge på tammer > ovreg. crashride til solo >  x someone like you/use somebody > Fullt stopp. La henge på gitar + stopp med gulvtomroll.",
-      "bpm": 70,
-      "start": "TELL",
-      "tags": [
-        "rock",
-        "singalong"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "When I Was A Boy",
-      "artist": "Jeff Lynne’s ELO",
-      "notes": "Beg. gitar > kommer inn med liten roll > 4/4, varier med ride. Liten overgang til vers. Slutter på «When I was a boy» 1-2--3 ride.",
-      "bpm": 75,
-      "start": "GITAR",
-      "tags": [
-        "rolig",
-        "pop"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "While My Guitar Gently Weeps",
-      "artist": "The Jeff Healey Band",
-      "notes": "Beg. gitar, kommer inn på lang tom-inngang. Tung. 16-dels hh. 4/4. Solo > slutt.",
-      "bpm": 135,
-      "start": "GITAR",
-      "tags": [
-        "rock",
-        "blues"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Who Says",
-      "artist": "John Mayer",
-      "notes": "Tell opp. Visper. Etter solo, vent, kom inn igjen",
-      "bpm": 90,
-      "start": "TELL",
-      "tags": [
-        "rolig",
-        "pop"
-      ],
-      "energy": "rolig"
-    },
-    {
-      "title": "World of Today",
-      "artist": "Supermax",
-      "notes": "Beg. gitar, kommer inn med 8-dels hi-hat, deretter mekanisk beat B S B S. Husk bygg opp til stopp på hvert ref. Etter solo, ref/vers/ref > slutt på ref.",
-      "bpm": 147,
-      "start": "GITAR",
-      "tags": [
-        "funk",
-        "dans"
-      ],
-      "energy": "høy"
-    },
-    {
-      "title": "Æ Breinn Et Lys i Begge Einann",
-      "artist": "K.M. Myrland",
-      "notes": "Begynner på tam-er (B BB S). «..skulle be», to takter > slutt. Bare slå løs, lage litt overganger.",
-      "bpm": null,
-      "start": "TROMMER",
-      "tags": [
-        "rock",
-        "norsk"
-      ],
-      "energy": "middels"
-    },
-    {
-      "title": "Sunshine Of Your Love",
-      "artist": "Cream",
-      "bpm": 117,
-      "start": "GITAR",
-      "energy": "middels",
-      "tags": [
-        "rock"
-      ],
-      "notes": "Backwards groove på 1 og 3 (gulvtam), ikke skarp gjennomgående på backbeat."
-    }
-  ],
-  "state": {
-    "played": [],
-    "history": [],
-    "favorites": [],
-    "setNo": 1,
-    "setStarts": [
-      0
-    ]
+[
+  {
+    "title": "Abracadabra",
+    "artist": "Steve Miller Band",
+    "notes": "Tell 1-2-3-4-1-2-3-BAM > Rett på med skarpslag - crash (S BB). Disco beat, gå over til ride helt mot slutten. Dovregubben på slutten, gitar alene, rock outro.",
+    "bpm": 129,
+    "start": "TELL",
+    "tags": [
+      "rock",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Black Magic Woman",
+    "artist": "Santana",
+    "notes": "To x klakk på bjelle før hi-hat. 2 veiver, før overgang til vers. Kubjelle + hi-hat + kantslag på vers. Ride + solo > vers m/kubjelle. Siste runde med hh. 7 ridecrash på slutten.",
+    "bpm": 124,
+    "start": "BJELLE",
+    "tags": [
+      "latin",
+      "rock",
+      "blues"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "Breakfast In America",
+    "artist": "Supertramp",
+    "notes": "Intro på gitar > inn etter to takter, med minivirvel. Stopp etter slutt på ref. Leken ride på bridge, kort. Stopp. Naa-naa. Slutter med ride + crash. Rit på slutten.",
+    "bpm": 75,
+    "start": "GITAR",
+    "tags": [
+      "pop",
+      "rolig"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Brown Eyed Girl",
+    "artist": "Van Morrison",
+    "notes": "Tell opp, Halvslag hi-hat fra start, husk kant slag i intro 4. slag bass\nFader ut?",
+    "bpm": 150,
+    "start": "TELL",
+    "tags": [
+      "pop",
+      "dans",
+      "singalong"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Can’t Help Falling In Love",
+    "artist": "Elvis Presley",
+    "notes": "Rett på med visper eller rods 16-dels hi hat + basstromme. Rit på slutten",
+    "bpm": 100,
+    "start": "RETT PÅ",
+    "tags": [
+      "rolig",
+      "ballade"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Come Together",
+    "artist": "The Beatles",
+    "notes": "Husk klut over gulvtam. Tell opp: 4x hh > vers > 4x hh > vers > 4x hh > vers > 2x hh > overg. crash/ride rytme (solo) > stopp. Vers g.tom > 4x hh > overg. crash/ride rytme (outro).",
+    "bpm": 83,
+    "start": "TELL",
+    "tags": [
+      "rock",
+      "groove"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "Crazy Little Thing Called Love",
+    "artist": "Queen",
+    "notes": "Beg. med gitar. Elvis swing beat på hi-hat > stopp på hvert vers. Husk brekk på slutt av ref, klikking etter første bass. Etter solo, slutt med dempet crash > brekk > til klappeparti > ‘love’, kom inn igjen med skarp > vers > Når ikke synger mer, stopp med 1-2-3-4-5-6 på ride",
+    "bpm": 77,
+    "start": "GITAR",
+    "tags": [
+      "rock",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Dead Flowers",
+    "artist": "The Rolling Stones",
+    "notes": "Litt fart her. Tell opp, starter med roll, kommer > 4/4. Avslutter etter siste “Won’t forget to put roses on your grave” 1-2-krasj",
+    "bpm": 130,
+    "start": "TELL",
+    "tags": [
+      "rock",
+      "country"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Deidres Samba",
+    "artist": "Cornelis Vreeswijk",
+    "notes": "Tell opp: Sambarytme m/fast b.tr + hh sammen med Ekka. Harmoniser. BB H BB H",
+    "bpm": null,
+    "start": "TELL",
+    "tags": [
+      "samba",
+      "rolig"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Dimples",
+    "artist": "John Lee Hooker",
+    "notes": "Blues: Beg. m/gitar, gå over til (B S B S BB) + swingride på hi-hsy. Varier med ride og crash. Husk slutt, hold slagene på skarp i basslinje, slutt.",
+    "bpm": 137,
+    "start": "GITAR",
+    "tags": [
+      "blues",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Englishman In New York",
+    "artist": "Sting",
+    "notes": "Tell opp, begynner m/tom TT T splash > hi-hat virvel/splash + b.tromme + kantslag (gjennomgående) > ref. ride > vers > ref. ride > overgang til bridge > stadion-basstromme-veiv x 2 > roll overg. til vers + 6 x ‘be your self’ singalon > ref > roll overg. til stadion beat 2 x > slutt.",
+    "bpm": 102,
+    "start": "TELL",
+    "tags": [
+      "pop",
+      "reggae"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "Folsom Prison Blues",
+    "artist": "Johnny Cash",
+    "notes": "Intro på gitar + b.tromme -> Train beat. Ride på solo To ganger på slutten, før avslutn.",
+    "bpm": 102,
+    "start": "GITAR",
+    "tags": [
+      "country",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "From Hank to Hendrix",
+    "artist": "Neil Young",
+    "notes": "For det meste stomping på hi-hat, veksle med soft beat",
+    "bpm": 109,
+    "start": "RETT PÅ",
+    "tags": [
+      "rolig",
+      "country"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Get It On",
+    "artist": "T. Rex",
+    "notes": "Beg. m/gitar. Kommer inn m S B, S B. 4/4 hi-hat > Alle slag på ‘Get in on’. Stopp etter tredje ref. «Get in on», en takt etter.",
+    "bpm": 127,
+    "start": "GITAR",
+    "tags": [
+      "rock",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Help Me",
+    "artist": "Sonny Boy Williamson II",
+    "notes": "Rett på. Slow blues, slepende visper eller mutet driv (BSBSBSSBS) Ride på slutten. Stopp, to slag på ride helt slutt.",
+    "bpm": 114,
+    "start": "RETT PÅ",
+    "tags": [
+      "blues",
+      "rolig"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Human",
+    "artist": "The Killers",
+    "notes": "Rett på med hi-hat 16-del. Gå på med pumpebass > kutt hi-hat på første ref (kun b.tromme) > over til beat med gulvtam ut låta > evt veiv med kun basstr. for singalong > over til kun b.tromme (stopp rett før ‘are we dancer’).",
+    "bpm": 135,
+    "start": "RETT PÅ",
+    "tags": [
+      "pop",
+      "dans",
+      "singalong"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "I Heard It Through The Grapewine",
+    "artist": "Creedence Clearwater Revival",
+    "notes": "Tell opp: Rett på med hi-hat på 2. slag (4 takter), før kommer inn på 4/4. Etter ref > tam-er i 8 takter (3 ganger) > solo > avslutn.",
+    "bpm": 119,
+    "start": "TELL",
+    "tags": [
+      "rock",
+      "groove"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "I Shot The Sheriff",
+    "artist": "Eric Clapton",
+    "notes": "Git start > Start med hh+b.tromme > kommer inn T SS T. Etter 3. vers, to runder før avslutning.",
+    "bpm": 94,
+    "start": "GITAR",
+    "tags": [
+      "reggae",
+      "blues"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "I’m Gonna Be (500 Miles)",
+    "artist": "The Proclaimers",
+    "notes": "Tell opp > Starter med hi-hat, går over til b.trommeslag + skarp. To vers -> ref, nananana. Stopp. Intro med basslag + skarp to takter, kommer mer inn. Husk stopp, synkope ‘coming hooome’. Bygger opp før siste vers/ref.",
+    "bpm": 132,
+    "start": "TELL",
+    "tags": [
+      "pop",
+      "dans",
+      "singalong"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "I’ll Be Your Baby Tonight",
+    "artist": "Bob Dylan",
+    "notes": "Tell opp: Rett på med enkel 4/4 (HSHS), perk på 3. vers > ‘stopp’ med perk etter big fat moon’s gonna shine like a spoon. Husk egen outtro, kjør som vanlig.",
+    "bpm": 128,
+    "start": "TELL",
+    "tags": [
+      "country",
+      "rolig"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Is This Love",
+    "artist": "Bob Marley",
+    "notes": "Tell opp sakte, husk tempo, rett på med kantslag. Alle b-slag. Krydre med perk.",
+    "bpm": 122,
+    "start": "TELL",
+    "tags": [
+      "reggae",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "La Bamba",
+    "artist": "Los Lobos",
+    "notes": "Gitarintro, beat over annenhver tom. Husk hardt stopp etter første vers, hardt stopp etter solo. En runde med bamba, så Beatles-slutt.",
+    "bpm": 161,
+    "start": "GITAR",
+    "tags": [
+      "latin",
+      "dans",
+      "singalong"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Light My Fire",
+    "artist": "The Doors",
+    "notes": "Tell opp 1-2-3-4-1-2-3-smekk! Husk egen vri etter solo. Etter solo, 1-2-3-4, 1-2-3-4, deretter vers + ref. 2x. Etter stopp, tell 1-2-3-smekk! til avslutning. Husk rit!",
+    "bpm": 129,
+    "start": "TELL",
+    "tags": [
+      "rock"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Make Me Smile (Come Up and See Me)",
+    "artist": "Steve Harley & Cockney Rebel",
+    "notes": "Beg m/skala git/bass, 1111-11 på gulvtom, trommer inn på «You got it all». Husk harde stopp. Kan hende prat i mellom. Slutten; ref i ett to ganger, 4 slag på slutten.",
+    "bpm": 144,
+    "start": "GITAR/BASS",
+    "tags": [
+      "rock",
+      "pop",
+      "singalong"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Man of the World",
+    "artist": "Peter Green",
+    "notes": "Gitarintro, to veiv + mellomspill. Første vers uten trommer. Hi hat + B BB S (kantslag). Hardt stopp etter første veiv med trommer. Vent på gitar, hh + kant > Gå over til hard ride + skarp-rytme, en veiv. Outro kun gitar. Kommer inn helt på slutt med ride x 2.",
+    "bpm": 92,
+    "start": "GITAR",
+    "tags": [
+      "blues",
+      "rolig"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "No Place To Go",
+    "artist": "Fleetwood Mac",
+    "notes": "Blues, starter med gitar, kommer inn på off-rytme, ride swing + skarp (annenhvert basslag). Gjennomgående likt.",
+    "bpm": 144,
+    "start": "GITAR",
+    "tags": [
+      "blues"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Oh Baby",
+    "artist": "Status Quo",
+    "notes": "Git. start, bygger opp rytme til «I wanna be your dog-rytme». Lettere på vers. 4/4 hi-hat. Ride på solodel (blues). Husk brekk på bridge. Slutter med brekkene fra bridge.",
+    "bpm": null,
+    "start": "GITAR",
+    "tags": [
+      "rock",
+      "blues"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "People Are Strange",
+    "artist": "The Doors",
+    "notes": "Beg m/ gitar. Inn inn på ref. Med harde stopp, siste slag etter ‘rain’. Ride + ghost. Stopp etter solo. Stopper på «When your.. strange».",
+    "bpm": 119,
+    "start": "GITAR",
+    "tags": [
+      "rock",
+      "pop"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "Perfectly Lonely",
+    "artist": "John Mayer",
+    "notes": "To støt på gitar, så ridedrevet 4/4. Over til hh på vers. Veksle over til ride på gitarveiv. Intro til bridge med 8x singelslag, over til ride.",
+    "bpm": 92,
+    "start": "GITAR",
+    "tags": [
+      "pop",
+      "groove"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "Rosie",
+    "artist": "John Mayer",
+    "notes": "Tell opp sakte > Rett på med hi hat + skarp (B S BB B). Ride på vers. Virvel før solo. 8 takter på slutten.",
+    "bpm": 139,
+    "start": "TELL",
+    "tags": [
+      "pop",
+      "groove"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Ruby",
+    "artist": "Gary Holton & Casino Steel",
+    "notes": "2 takter sakte 16-del, pause hi-hat > Stopp på slutten av ref. etter «Oh Ruuby.. +». Husk gulvtom + hi hat. Begynn beat igjen etter siste vokal før bam/stopp.",
+    "bpm": 97,
+    "start": "HH",
+    "tags": [
+      "country",
+      "pop"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "Sad Eyes",
+    "artist": "Bruce Springsteen",
+    "notes": "Beg. gitar, kommer inn etter 1 takt, kantslag + hi-hat, soft/lounge\nStopp etter “Come on dressed, one more step”, hold på hi-hat. Ref inn igjen etter kort pause.",
+    "bpm": 115,
+    "start": "GITAR",
+    "tags": [
+      "rolig",
+      "pop"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Start Me Up",
+    "artist": "The Rolling Stones",
+    "notes": "Begynner med gitar, trommer kommer inn med hi-hat splash + basstromme. Enkeltslag skarp. Deretter hente inn hihat-rytme. Ride på ref.",
+    "bpm": 122,
+    "start": "GITAR",
+    "tags": [
+      "rock",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Sunny Afternoon",
+    "artist": "The Kinks",
+    "notes": "Husk tempo! 122. Beg med bass, kommer inn med 1-2-3-4-5-6 skarp. Soft beat hi-hat 4/4.",
+    "bpm": 123,
+    "start": "BASS",
+    "tags": [
+      "pop",
+      "rolig",
+      "singalong"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Take Me Home, Country Roads",
+    "artist": "John Denver",
+    "notes": "Git. start, hold tap på skarp. Jazz stomp, visper beg. på refreng.",
+    "bpm": 83,
+    "start": "GITAR",
+    "tags": [
+      "country",
+      "singalong"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "The Thrill Is Gone",
+    "artist": "Gary Moore feat. BB King",
+    "notes": "Husk tempo! Blues, kommer inn litt etter bass. Hi-hat + kantslag.\nEtter første vers, kom inn med fast rytme skarp. Solo. Varier med kantslag pianoissimo på solo underveis.",
+    "bpm": 91,
+    "start": "BASS",
+    "tags": [
+      "blues",
+      "rolig"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "The Weight",
+    "artist": "The Band",
+    "notes": "Beg. m/gitar 2 takter, sakte roll overg. Kort solo > siste vers + ref > to runder etter ‘slutt’.",
+    "bpm": 72,
+    "start": "GITAR",
+    "tags": [
+      "rock",
+      "singalong"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "Time Is On My Side",
+    "artist": "The Rolling Stones",
+    "notes": "Husk tempo: Beg. m/gitar. Trommer inn på ref. Sakte blues-ride > time time time x 3 > 1-2-3-4-5—6 på ride.",
+    "bpm": 109,
+    "start": "GITAR",
+    "tags": [
+      "blues",
+      "rolig"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "Use Somebody",
+    "artist": "Kings Of Leon",
+    "notes": "Tell opp: Rett på med crashriderytme. Stopp på 1. vers. Bygger opp på 2. vers. > ref crashride > vanlig rytme på 3. vers + bygger opp til crashride ref. Bridge på tammer > ovreg. crashride til solo >  x someone like you/use somebody > Fullt stopp. La henge på gitar + stopp med gulvtomroll.",
+    "bpm": 70,
+    "start": "TELL",
+    "tags": [
+      "rock",
+      "singalong"
+    ],
+    "energy": "middels"
+  },
+  {
+    "title": "When I Was A Boy",
+    "artist": "Jeff Lynne’s ELO",
+    "notes": "Beg. gitar > kommer inn med liten roll > 4/4, varier med ride. Liten overgang til vers. Slutter på «When I was a boy» 1-2--3 ride.",
+    "bpm": 75,
+    "start": "GITAR",
+    "tags": [
+      "rolig",
+      "pop"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "While My Guitar Gently Weeps",
+    "artist": "The Jeff Healey Band",
+    "notes": "Beg. gitar, kommer inn på lang tom-inngang. Tung. 16-dels hh. 4/4. Solo > slutt.",
+    "bpm": 135,
+    "start": "GITAR",
+    "tags": [
+      "rock",
+      "blues"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Who Says",
+    "artist": "John Mayer",
+    "notes": "Tell opp. Visper. Etter solo, vent, kom inn igjen",
+    "bpm": 90,
+    "start": "TELL",
+    "tags": [
+      "rolig",
+      "pop"
+    ],
+    "energy": "rolig"
+  },
+  {
+    "title": "World of Today",
+    "artist": "Supermax",
+    "notes": "Beg. gitar, kommer inn med 8-dels hi-hat, deretter mekanisk beat B S B S. Husk bygg opp til stopp på hvert ref. Etter solo, ref/vers/ref > slutt på ref.",
+    "bpm": 147,
+    "start": "GITAR",
+    "tags": [
+      "funk",
+      "dans"
+    ],
+    "energy": "høy"
+  },
+  {
+    "title": "Æ Breinn Et Lys i Begge Einann",
+    "artist": "K.M. Myrland",
+    "notes": "Begynner på tam-er (B BB S). «..skulle be», to takter > slutt. Bare slå løs, lage litt overganger.",
+    "bpm": null,
+    "start": "TROMMER",
+    "tags": [
+      "rock",
+      "norsk"
+    ],
+    "energy": "middels"
   }
-}
+]

@@ -97,9 +97,17 @@ async function fetchFeed(){
   });
   if(!r.ok)throw new Error(`HTTP ${r.status}`);
   const data=await r.json();
-  if(!Array.isArray(data))throw new Error("songs.json må være en array");
-  localStorage.setItem(FEED_CACHE_KEY,JSON.stringify(data));
-  return data;
+
+  // Godta begge formatene:
+  // 1) ren songs.json-array
+  // 2) full app-backup med { songs: [...] }
+  const list=Array.isArray(data)
+    ? data
+    : (data && Array.isArray(data.songs) ? data.songs : null);
+
+  if(!list)throw new Error("Filen inneholder ikke et gyldig repertoar");
+  localStorage.setItem(FEED_CACHE_KEY,JSON.stringify(list));
+  return list;
 }
 
 async function load(){
@@ -179,8 +187,11 @@ $("importInput").addEventListener("change",async e=>{
   const f=e.target.files[0];if(!f)return;
   try{
     const data=JSON.parse(await f.text());
-    if(!Array.isArray(data))throw new Error("Filen må inneholde en JSON-array.");
-    songs=data;saveDraft();render();
+    const list=Array.isArray(data)
+      ? data
+      : (data && Array.isArray(data.songs) ? data.songs : null);
+    if(!list)throw new Error("Filen inneholder ikke et gyldig repertoar.");
+    songs=list;saveDraft();render();
   }catch(err){alert("Kunne ikke importere filen: "+err.message)}
   e.target.value="";
 });
