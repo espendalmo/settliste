@@ -9,7 +9,11 @@
       "rock",
       "dans"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "abracadabra-steve-miller-band",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Black Magic Woman",
@@ -22,7 +26,11 @@
       "rock",
       "blues"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "black-magic-woman-santana",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Breakfast In America",
@@ -34,7 +42,11 @@
       "pop",
       "rolig"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "breakfast-in-america-supertramp",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Brown Eyed Girl",
@@ -47,7 +59,11 @@
       "dans",
       "singalong"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "brown-eyed-girl-van-morrison",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Can’t Help Falling In Love",
@@ -59,7 +75,11 @@
       "rolig",
       "ballade"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "cant-help-falling-in-love-elvis-presley",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Come Together",
@@ -71,19 +91,27 @@
       "rock",
       "groove"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "come-together-the-beatles",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Crazy Little Thing Called Love",
     "artist": "Queen",
+    "notes": "Beg. med gitar. Elvis swing beat på hi-hat > stopp på hvert vers. Husk brekk på slutt av ref, klikking etter første bass. Etter solo, slutt med dempet crash > brekk > til klappeparti > ‘love’, kom inn igjen med skarp > vers > Når ikke synger mer, stopp med 1-2-3-4-5-6 på ride",
     "bpm": 152,
     "start": "GITAR",
-    "energy": "høy",
     "tags": [
       "rock",
       "dans"
     ],
-    "notes": "Beg. med gitar. Shuffle beat på hi-hat > stopp på hvert vers. Husk brekk på slutt av ref, klikking etter første bass. Etter solo, slutt med dempet crash > brekk > til klappeparti > ‘love’, kom inn igjen med skarp > vers > Når ikke synger mer, stopp med 1-2-3-4-5-6 på ride"
+    "energy": "høy",
+    "id": "crazy-little-thing-called-love-queen",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Dead Flowers",
@@ -95,18 +123,27 @@
       "rock",
       "country"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "dead-flowers-the-rolling-stones",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Deidres Samba",
     "artist": "Cornelis Vreeswijk",
+    "notes": "Tell opp: Sambarytme m/fast b.tr + hh sammen med Ekka. Harmoniser. BB H BB H",
     "bpm": 120,
     "start": "TELL",
-    "energy": "middels",
     "tags": [
-      "samba"
+      "samba",
+      "rolig"
     ],
-    "notes": "Tell opp: Sambarytme m/fast b.tr + hh sammen med Ekka. Harmoniser. BB H BB H"
+    "energy": "rolig",
+    "id": "deidres-samba-cornelis-vreeswijk",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Dimples",
@@ -118,7 +155,11 @@
       "blues",
       "dans"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "dimples-john-lee-hooker",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Englishman In New York",
@@ -130,7 +171,11 @@
       "pop",
       "reggae"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "englishman-in-new-york-sting",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Folsom Prison Blues",
@@ -142,7 +187,11 @@
       "country",
       "dans"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "folsom-prison-blues-johnny-cash",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "From Hank to Hendrix",
@@ -154,7 +203,11 @@
       "rolig",
       "country"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "from-hank-to-hendrix-neil-young",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Get It On",
@@ -166,7 +219,11 @@
       "rock",
       "dans"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "get-it-on-t-rex",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Help Me",
@@ -178,7 +235,11 @@
       "blues",
       "rolig"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "help-me-sonny-boy-williamson-ii",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Human",
@@ -191,7 +252,11 @@
       "dans",
       "singalong"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "human-the-killers",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "I Heard It Through The Grapewine",
@@ -203,7 +268,11 @@
       "rock",
       "groove"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "i-heard-it-through-the-grapewine-creedence-clearwater-revival",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "I Shot The Sheriff",
@@ -215,7 +284,11 @@
       "reggae",
       "blues"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "i-shot-the-sheriff-eric-clapton",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "I’m Gonna Be (500 Miles)",
@@ -228,7 +301,11 @@
       "dans",
       "singalong"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "im-gonna-be-500-miles-the-proclaimers",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "I’ll Be Your Baby Tonight",
@@ -240,7 +317,11 @@
       "country",
       "rolig"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "ill-be-your-baby-tonight-bob-dylan",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Is This Love",
@@ -252,7 +333,11 @@
       "reggae",
       "dans"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "is-this-love-bob-marley",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "La Bamba",
@@ -265,7 +350,11 @@
       "dans",
       "singalong"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "la-bamba-los-lobos",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Light My Fire",
@@ -276,7 +365,11 @@
     "tags": [
       "rock"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "light-my-fire-the-doors",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Make Me Smile (Come Up and See Me)",
@@ -289,7 +382,11 @@
       "pop",
       "singalong"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "make-me-smile-come-up-and-see-me-steve-harley-cockney-rebel",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Man of the World",
@@ -301,7 +398,11 @@
       "blues",
       "rolig"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "man-of-the-world-peter-green",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "No Place To Go",
@@ -312,19 +413,27 @@
     "tags": [
       "blues"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "no-place-to-go-fleetwood-mac",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Oh Baby",
     "artist": "Status Quo",
     "notes": "Git. start, bygger opp rytme til «I wanna be your dog-rytme». Lettere på vers. 4/4 hi-hat. Ride på solodel (blues). Husk brekk på bridge. Slutter med brekkene fra bridge.",
-    "bpm": null,
+    "bpm": 109,
     "start": "GITAR",
     "tags": [
       "rock",
       "blues"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "oh-baby-status-quo",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "People Are Strange",
@@ -336,7 +445,11 @@
       "rock",
       "pop"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "people-are-strange-the-doors",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Perfectly Lonely",
@@ -348,7 +461,11 @@
       "pop",
       "groove"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "perfectly-lonely-john-mayer",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Rosie",
@@ -360,7 +477,11 @@
       "pop",
       "groove"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "rosie-john-mayer",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Ruby",
@@ -372,7 +493,11 @@
       "country",
       "pop"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "ruby-gary-holton-casino-steel",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Sad Eyes",
@@ -384,7 +509,11 @@
       "rolig",
       "pop"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "sad-eyes-bruce-springsteen",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Start Me Up",
@@ -396,7 +525,11 @@
       "rock",
       "dans"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "start-me-up-the-rolling-stones",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Sunny Afternoon",
@@ -409,7 +542,11 @@
       "rolig",
       "singalong"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "sunny-afternoon-the-kinks",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Take Me Home, Country Roads",
@@ -421,7 +558,11 @@
       "country",
       "singalong"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "take-me-home-country-roads-john-denver",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "The Thrill Is Gone",
@@ -433,7 +574,11 @@
       "blues",
       "rolig"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "the-thrill-is-gone-gary-moore-feat-bb-king",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "The Weight",
@@ -445,7 +590,11 @@
       "rock",
       "singalong"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "the-weight-the-band",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Time Is On My Side",
@@ -457,7 +606,11 @@
       "blues",
       "rolig"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "time-is-on-my-side-the-rolling-stones",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Use Somebody",
@@ -469,7 +622,11 @@
       "rock",
       "singalong"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "use-somebody-kings-of-leon",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "When I Was A Boy",
@@ -481,7 +638,11 @@
       "rolig",
       "pop"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "when-i-was-a-boy-jeff-lynnes-elo",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "While My Guitar Gently Weeps",
@@ -493,7 +654,11 @@
       "rock",
       "blues"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "while-my-guitar-gently-weeps-the-jeff-healey-band",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Who Says",
@@ -505,7 +670,11 @@
       "rolig",
       "pop"
     ],
-    "energy": "rolig"
+    "energy": "rolig",
+    "id": "who-says-john-mayer",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "World of Today",
@@ -517,19 +686,27 @@
       "funk",
       "dans"
     ],
-    "energy": "høy"
+    "energy": "høy",
+    "id": "world-of-today-supermax",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Æ Breinn Et Lys i Begge Einann",
     "artist": "K.M. Myrland",
     "notes": "Begynner på tam-er (B BB S). «..skulle be», to takter > slutt. Bare slå løs, lage litt overganger.",
-    "bpm": 70,
-    "start": "TELL",
+    "bpm": null,
+    "start": "TROMMER",
     "tags": [
       "rock",
       "norsk"
     ],
-    "energy": "middels"
+    "energy": "middels",
+    "id": "breinn-et-lys-i-begge-einann-k-m-myrland",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Pål sine høner",
@@ -540,7 +717,11 @@
     "tags": [
       "rock"
     ],
-    "notes": "Starter med gitar, så bass alene to takter, kommer inn med 1-2-3-crash > hi-hat driv. 'Heimåt til mor', break på slag 1-2-3-crash CRASH. Veksle med ride + fills på bridge, over til crash--crash > nytt vers. Slutter etter 'heimåt til mor' x 3."
+    "notes": "Starter med gitar, så bass alene to takter, kommer inn med 1-2-3-crash > hi-hat driv. 'Heimåt til mor', break på slag 1-2-3-crash CRASH. Veksle med ride + fills på bridge, over til crash--crash > nytt vers. Slutter etter 'heimåt til mor' x 3.",
+    "id": "pal-sine-hner-kes",
+    "projects": [
+      "pubband"
+    ]
   },
   {
     "title": "Sunshine Of Your Love",
@@ -551,6 +732,10 @@
     "tags": [
       "rock"
     ],
-    "notes": "Backwards groove på 1 og 3 (gulvtam), ikke skarp gjennomgående på backbeat."
+    "notes": "Backwards groove på 1 og 3 (gulvtam), ikke skarp gjennomgående på backbeat.",
+    "id": "sunshine-of-your-love-cream",
+    "projects": [
+      "pubband"
+    ]
   }
 ]

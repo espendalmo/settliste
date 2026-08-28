@@ -1,48 +1,13 @@
-const CACHE="gig-settliste-v6.4";
-const STATIC=["./","./index.html","./editor.html","./manifest.webmanifest","./icon-192.png","./icon-512.png"];
-
-self.addEventListener("install",event=>{
-  event.waitUntil(
-    caches.open(CACHE)
-      .then(cache=>cache.addAll(STATIC))
-      .then(()=>self.skipWaiting())
-  );
-});
-
-self.addEventListener("activate",event=>{
-  event.waitUntil(
-    caches.keys()
-      .then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key))))
-      .then(()=>self.clients.claim())
-  );
-});
-
-self.addEventListener("fetch",event=>{
-  if(event.request.method!=="GET")return;
-
-  const url=new URL(event.request.url);
-
-  if(url.pathname.endsWith("/songs.json")){
-    event.respondWith(
-      fetch(event.request,{cache:"no-store"})
-        .then(response=>{
-          const copy=response.clone();
-          caches.open(CACHE).then(cache=>cache.put("./songs.json",copy));
-          return response;
-        })
-        .catch(()=>caches.match("./songs.json"))
-    );
-    return;
-  }
-
-  event.respondWith(
-    caches.match(event.request).then(cached=>{
-      if(cached)return cached;
-      return fetch(event.request).then(response=>{
-        const copy=response.clone();
-        caches.open(CACHE).then(cache=>cache.put(event.request,copy));
-        return response;
-      });
-    })
-  );
+const CACHE="gig-settliste-v7";
+const STATIC=["./","./index.html","./editor.html","./songs.json","./projects.json","./manifest.webmanifest","./icon-192.png","./icon-512.png"];
+self.addEventListener("install",e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC)).then(()=>self.skipWaiting())));
+self.addEventListener("activate",e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
+self.addEventListener("fetch",e=>{
+ if(e.request.method!=="GET")return;
+ const url=new URL(e.request.url);
+ if(url.pathname.endsWith("/songs.json")||url.pathname.endsWith("/projects.json")){
+  e.respondWith(fetch(e.request,{cache:"no-store"}).then(r=>{const c=r.clone();caches.open(CACHE).then(cache=>cache.put(e.request,c));return r}).catch(()=>caches.match(e.request)));
+  return;
+ }
+ e.respondWith(caches.match(e.request).then(cached=>cached||fetch(e.request).then(r=>{const c=r.clone();caches.open(CACHE).then(cache=>cache.put(e.request,c));return r})));
 });

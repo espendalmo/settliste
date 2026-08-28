@@ -1,0 +1,13 @@
+[
+  {
+    "id": "pubband",
+    "name": "Pubband",
+    "setlists": [
+      {
+        "id": "standard",
+        "name": "Standard",
+        "items": []
+      }
+    ]
+  }
+]
